@@ -25,11 +25,12 @@ const MatrixLoader = ({ onComplete }) => {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.font = `${fontSize}px monospace`;
 
-      drops.forEach((y, i) => {
-        const char = CHARS[Math.floor(Math.random() * CHARS.length)];
-        // Mixed orange and blue rain
-        ctx.fillStyle = i % 3 === 0 ? '#3b82f6' : '#f97316';
-        ctx.fillText(char, i * fontSize, y * fontSize);
+        drops.forEach((y, i) => {
+          const char = CHARS[Math.floor(Math.random() * CHARS.length)];
+          // Mixed orange, blue, and violet rain
+          const colors = ['#f97316', '#3b82f6', '#8b5cf6'];
+          ctx.fillStyle = colors[i % 3];
+          ctx.fillText(char, i * fontSize, y * fontSize);
 
         if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
         drops[i]++;

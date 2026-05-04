@@ -71,7 +71,7 @@ const About = () => {
             </div>
 
             {/* Info grid */}
-            <div className="grid grid-cols-2 gap-3 mb-10">
+            <div className="grid grid-cols-2 gap-4 mb-10">
               {infoItems.map((item, i) => (
                 <motion.div
                   key={i}
@@ -79,10 +79,10 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="border border-white/6 rounded-xl p-4 hover:border-blue-500/25 hover:bg-blue-500/3 transition-all duration-300 group"
+                  className="glass-morphism rounded-2xl p-5 hover:border-blue-500/30 transition-all duration-300 group"
                 >
                   <p className="text-[10px] text-blue-400 font-black uppercase tracking-widest mb-1.5">{item.label}</p>
-                  <p className="text-sm text-white/70 font-medium group-hover:text-white transition-colors break-all">{item.value}</p>
+                  <p className="text-sm text-slate-300 font-semibold group-hover:text-white transition-colors break-all">{item.value}</p>
                 </motion.div>
               ))}
             </div>
@@ -98,19 +98,10 @@ const About = () => {
                 href="https://www.linkedin.com/in/sameersangam/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors group"
+                className="px-6 py-2.5 bg-white/5 border border-white/10 hover:border-orange-500/40 rounded-full text-sm font-bold text-orange-400 hover:text-white transition-all group flex items-center gap-2"
               >
                 LinkedIn Profile
-                <svg className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-              </a>
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 text-sm font-bold text-white/40 hover:text-white transition-colors group"
-              >
-                View Projects
-                <svg className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
               </a>

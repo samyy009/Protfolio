@@ -47,7 +47,7 @@ const Hero = () => {
         {/* Name */}
         <TextReveal
           text="Sameer Sangam"
-          className="text-6xl md:text-9xl font-black orange-blue-gradient leading-none mb-6 justify-center tracking-tight"
+          className="text-6xl md:text-9xl font-black sunset-gradient leading-none mb-6 justify-center tracking-tighter"
         />
 
         {/* Typewriter */}
@@ -57,9 +57,9 @@ const Hero = () => {
           transition={{ delay: 1.0, duration: 0.6 }}
           className="h-10 flex items-center justify-center mb-5"
         >
-          <span className="text-xl md:text-2xl text-blue-400 font-bold font-mono">
+          <span className="text-xl md:text-2xl text-blue-400/90 font-bold tracking-tight">
             {typedRole}
-            <span className="inline-block ml-0.5 w-0.5 h-5 bg-blue-400 align-middle" style={{ animation: 'blink 1s step-end infinite' }} />
+            <span className="inline-block ml-1 w-0.5 h-5 bg-orange-500/80 align-middle" style={{ animation: 'blink 1s step-end infinite' }} />
           </span>
         </motion.div>
 
@@ -68,9 +68,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.7 }}
-          className="text-base md:text-lg text-white/35 mb-14 max-w-2xl mx-auto leading-relaxed"
+          className="text-base md:text-lg text-slate-400 mb-14 max-w-2xl mx-auto leading-relaxed font-medium"
         >
-          ML Data Specialist · Full Stack Developer · Game Programmer — building production-grade software from Hubli, Karnataka, India.
+          ML Data Specialist · Full Stack Developer · Game Programmer — building production-grade software from Hubli, Karnataka.
         </motion.p>
 
         {/* CTA buttons */}
@@ -78,22 +78,15 @@ const Hero = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.7 }}
-          className="flex flex-wrap items-center justify-center gap-5 mb-24"
+          className="flex flex-wrap items-center justify-center gap-6 mb-24"
         >
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
-            className="px-8 py-3.5 bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-400 hover:to-blue-500 text-white text-sm font-black rounded-full transition-all transform hover:scale-105 shadow-xl shadow-orange-500/20 tracking-wide">
-            Download CV
+            className="px-10 py-4 bg-gradient-to-r from-orange-500 via-purple-600 to-blue-600 hover:scale-105 text-white text-sm font-bold rounded-full transition-all shadow-2xl shadow-purple-500/20 tracking-wide uppercase">
+            Get In Touch
           </a>
-          <a href="https://www.linkedin.com/in/sameersangam/" target="_blank" rel="noopener noreferrer"
-            className="px-8 py-3.5 border border-white/15 hover:border-blue-500/60 hover:bg-blue-500/8 text-white text-sm font-bold rounded-full transition-all tracking-wide flex items-center gap-2">
-            <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-            540+ Followers
-          </a>
-          <a href="mailto:sameersangam66@gmail.com"
-            className="px-8 py-3.5 border border-white/10 hover:border-orange-500/40 text-white/50 hover:text-orange-400 text-sm font-bold rounded-full transition-all tracking-wide">
-            sameersangam66@gmail.com
+          <a href="#projects"
+            className="px-10 py-4 border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-white text-sm font-bold rounded-full transition-all tracking-wide uppercase">
+            View Work
           </a>
         </motion.div>
 
@@ -102,14 +95,14 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 0.9 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/5 pt-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/5 pt-16"
         >
           {stats.map((stat, i) => (
             <div key={i} className="text-center group cursor-default">
-              <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-4xl md:text-5xl font-black sunset-gradient mb-2 group-hover:scale-110 transition-transform duration-300">
                 {stat.value}
               </div>
-              <div className="text-[10px] uppercase tracking-[0.25em] text-white/25 font-bold">
+              <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-black">
                 {stat.label}
               </div>
             </div>
