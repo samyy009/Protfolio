@@ -38,7 +38,7 @@ const Hero = () => {
           <img
             src="https://github.com/samyy009.png"
             alt="Sameer Sangam"
-            className="relative w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-orange-500/60 object-cover shadow-2xl shadow-orange-500/20"
+            className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-orange-500/60 object-cover shadow-2xl shadow-orange-500/20"
             onError={(e) => {
               e.target.src = 'https://ui-avatars.com/api/?name=SS&background=1a0800&color=f97316&size=256&bold=true';
             }}

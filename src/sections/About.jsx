@@ -13,7 +13,7 @@ const About = () => {
   return (
     <section id="about" className="py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* Image */}
           <motion.div
@@ -29,7 +29,7 @@ const About = () => {
                 src="https://github.com/samyy009.png"
                 alt="Sameer Sangam"
                 className="w-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-                style={{ minHeight: '350px' }}
+                style={{ minHeight: '400px' }}
               />
               {/* Availability badge */}
               <div className="absolute bottom-6 left-6 right-6 z-20">
