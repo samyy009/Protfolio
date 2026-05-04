@@ -3,6 +3,8 @@ import { useRef } from 'react';
 import { stats } from '../data/projects';
 import TextReveal from '../components/TextReveal';
 import useTypewriter from '../hooks/useTypewriter';
+import Magnetic from '../components/Magnetic';
+import FloatingIcons from '../components/FloatingIcons';
 
 const ROLES = [
   'Full Stack Developer',
