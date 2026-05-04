@@ -4,18 +4,18 @@ import { experience } from '../data/experience';
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-28">
+    <section id="experience" className="py-16">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-12"
         >
-          <p className="text-blue-400 text-xs font-black uppercase tracking-[0.2em] mb-3">Career</p>
+          <p className="text-blue-400 text-[10px] font-black uppercase tracking-[0.2em] mb-2">Career</p>
           <TextReveal
             text="Professional Experience"
-            className="text-4xl md:text-6xl font-black sunset-gradient"
+            className="text-3xl md:text-4xl font-black sunset-gradient"
           />
         </motion.div>
 

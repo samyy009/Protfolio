@@ -11,9 +11,9 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-28">
+    <section id="about" className="py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
           {/* Image */}
           <motion.div
@@ -29,13 +29,13 @@ const About = () => {
                 src="https://github.com/samyy009.png"
                 alt="Sameer Sangam"
                 className="w-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-                style={{ minHeight: '400px' }}
+                style={{ minHeight: '350px' }}
               />
               {/* Availability badge */}
               <div className="absolute bottom-6 left-6 right-6 z-20">
                 <div className="backdrop-blur-xl bg-black/70 border border-white/10 rounded-2xl px-5 py-4 flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 bg-orange-400 rounded-full animate-pulse flex-shrink-0" />
-                  <span className="text-white text-sm font-bold">Available for full-time & freelance roles</span>
+                  <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse flex-shrink-0" />
+                  <span className="text-white text-xs font-bold">Available for full-time & freelance roles</span>
                 </div>
               </div>
             </div>
@@ -49,17 +49,17 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-blue-400 text-xs font-black uppercase tracking-[0.2em] mb-4"
+              className="text-blue-400 text-[10px] font-black uppercase tracking-[0.2em] mb-3"
             >
               About Me
             </motion.p>
 
             <TextReveal
               text="Skilled in Data Annotation & Full Stack Development"
-              className="text-3xl md:text-4xl font-black text-white mb-8 leading-tight"
+              className="text-2xl md:text-3xl font-black text-white mb-6 leading-tight"
             />
 
-            <div className="space-y-4 text-[15px] text-white/40 leading-[1.85] mb-10">
+            <div className="space-y-4 text-sm text-slate-400 leading-relaxed mb-10">
               <p>
                 I'm <span className="text-white/80 font-semibold">Sameer Sangam</span> — a data annotation specialist and full stack developer based in Karnataka, India. With a track record of delivering meticulous, high-quality annotations across diverse ML datasets (text, images, audio, and video), I've contributed to world-class AI platforms at <span className="text-orange-400 font-medium">iMerit Technology</span>.
               </p>

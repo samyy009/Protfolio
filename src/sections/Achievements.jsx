@@ -65,16 +65,16 @@ const Achievements = () => {
   }));
 
   return (
-    <section id="achievements" className="py-28">
+    <section id="achievements" className="py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 mb-12">
           <div>
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-              className="text-orange-400 text-xs font-black uppercase tracking-[0.2em] mb-3">
+              className="text-orange-400 text-[10px] font-black uppercase tracking-[0.2em] mb-2">
               Achievements & Certifications
             </motion.p>
-            <TextReveal text="Milestones in My Journey" className="text-4xl md:text-6xl font-black text-white" />
+            <TextReveal text="Milestones in My Journey" className="text-3xl md:text-4xl font-black text-white" />
           </div>
 
           <div className="flex gap-3 flex-shrink-0">

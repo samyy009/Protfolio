@@ -56,9 +56,9 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-28">
+    <section id="contact" className="py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -66,12 +66,12 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-blue-400 text-xs font-black uppercase tracking-[0.2em] mb-4">Get in touch</p>
+            <p className="text-blue-400 text-[10px] font-black uppercase tracking-[0.2em] mb-3">Get in touch</p>
             <TextReveal
               text="Have a project in mind? Let's build it."
-              className="text-4xl md:text-5xl font-black sunset-gradient mb-8 leading-tight"
+              className="text-3xl md:text-4xl font-black sunset-gradient mb-6 leading-tight"
             />
-            <p className="text-slate-400 mb-12 leading-relaxed text-sm">
+            <p className="text-slate-400 mb-10 leading-relaxed text-xs">
               I'm open to full-time roles, freelance projects, and collaboration opportunities. Whether you need data annotation expertise or a full stack web application built — I'd love to hear from you.
             </p>
 

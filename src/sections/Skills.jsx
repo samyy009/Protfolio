@@ -42,12 +42,12 @@ import { motion } from 'framer-motion';
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-28">
+    <section id="skills" className="py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-16">
-          <p className="text-orange-400 text-xs font-black uppercase tracking-[0.2em] mb-3">My Skills</p>
-          <TextReveal text="Technologies & Tools" className="text-4xl md:text-6xl font-black text-white justify-center mb-4" />
-          <p className="text-white/30 max-w-xl mx-auto text-sm leading-relaxed">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-12">
+          <p className="text-orange-400 text-[10px] font-black uppercase tracking-[0.2em] mb-2">My Skills</p>
+          <TextReveal text="Technologies & Tools" className="text-3xl md:text-4xl font-black text-white justify-center mb-3" />
+          <p className="text-slate-400 max-w-xl mx-auto text-xs leading-relaxed font-medium">
             From machine learning data pipelines to full stack web applications — I work across the entire technology spectrum.
           </p>
         </motion.div>

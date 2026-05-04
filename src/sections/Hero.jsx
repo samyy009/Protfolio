@@ -23,7 +23,7 @@ const Hero = () => {
   const typedRole = useTypewriter(ROLES, 80, 50, 2200);
 
   return (
-    <section ref={ref} id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
+    <section ref={ref} id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 overflow-hidden">
       <FloatingIcons />
       <motion.div style={{ opacity, y }} className="relative z-10 max-w-5xl mx-auto px-6 text-center w-full">
 
@@ -32,25 +32,25 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: 'backOut' }}
-          className="relative inline-block mb-8"
+          className="relative inline-block mb-6"
         >
           <div className="absolute inset-0 rounded-full bg-orange-500/25 blur-2xl animate-pulse pointer-events-none" />
           <img
             src="https://github.com/samyy009.png"
             alt="Sameer Sangam"
-            className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-orange-500/60 object-cover shadow-2xl shadow-orange-500/20"
+            className="relative w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-orange-500/60 object-cover shadow-2xl shadow-orange-500/20"
             onError={(e) => {
               e.target.src = 'https://ui-avatars.com/api/?name=SS&background=1a0800&color=f97316&size=256&bold=true';
             }}
           />
           {/* Online dot */}
-          <div className="absolute bottom-2 right-2 w-4 h-4 rounded-full bg-orange-400 border-2 border-black animate-pulse" />
+          <div className="absolute bottom-2 right-2 w-3.5 h-3.5 rounded-full bg-orange-400 border-2 border-black animate-pulse" />
         </motion.div>
 
         {/* Name */}
         <TextReveal
           text="Sameer Sangam"
-          className="text-6xl md:text-9xl font-black sunset-gradient leading-none mb-6 justify-center tracking-tighter"
+          className="text-5xl md:text-7xl font-black sunset-gradient leading-none mb-6 justify-center tracking-tighter"
         />
 
         {/* Typewriter */}
