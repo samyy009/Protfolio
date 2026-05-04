@@ -15,7 +15,20 @@
   }
   
   body {
-    @apply bg-slate-950 text-slate-50 antialiased font-sans;
+    @apply bg-slate-950 text-slate-50 antialiased font-sans overflow-x-hidden;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-950;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-800 rounded-full border-2 border-slate-950 hover:bg-teal-500 transition-colors;
   }
 }
 
@@ -26,14 +39,5 @@
 
   .text-gradient {
     @apply bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent;
-  }
-  
-  .animate-fade-in {
-    animation: fadeIn 1.2s ease-out forwards;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 }
