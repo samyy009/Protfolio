@@ -11,12 +11,15 @@ const useActiveSection = (sectionIds) => {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
               setActive(entry.target.id);
             }
           });
         },
-        { threshold: 0.2, rootMargin: '-20% 0px -20% 0px' }
+        { 
+          threshold: [0.1, 0.2, 0.3], 
+          rootMargin: '-10% 0px -60% 0px' // Focus on the top part of the viewport
+        }
       );
 
       observer.observe(el);
