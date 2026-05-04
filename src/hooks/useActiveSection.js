@@ -9,12 +9,14 @@ const useActiveSection = (sectionIds) => {
       if (!el) return null;
 
       const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setActive(id);
-          }
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActive(entry.target.id);
+            }
+          });
         },
-        { threshold: 0.3, rootMargin: '-80px 0px 0px 0px' }
+        { threshold: 0.2, rootMargin: '-20% 0px -20% 0px' }
       );
 
       observer.observe(el);
