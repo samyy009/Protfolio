@@ -1,36 +1,35 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const useActiveSection = (sectionIds) => {
   const [active, setActive] = useState('hero');
+  const observerRef = useRef(null);
 
   useEffect(() => {
-    const observers = sectionIds.map((id) => {
+    // Single observer for all sections
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // If the section is in the top half of the viewport
+          if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      { 
+        threshold: [0.1, 0.2, 0.5, 0.8],
+        rootMargin: '-80px 0px -50% 0px' // Focus on the upper half
+      }
+    );
+
+    sectionIds.forEach((id) => {
       const el = document.getElementById(id);
-      if (!el) return null;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
-              setActive(entry.target.id);
-            }
-          });
-        },
-        { 
-          threshold: [0.1, 0.2, 0.3], 
-          rootMargin: '-10% 0px -60% 0px' // Focus on the top part of the viewport
-        }
-      );
-
-      observer.observe(el);
-      return observer;
+      if (el) observerRef.current.observe(el);
     });
 
     return () => {
-      observers.forEach((obs, i) => {
-        const el = document.getElementById(sectionIds[i]);
-        if (obs && el) obs.unobserve(el);
-      });
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
     };
   }, [sectionIds]);
 
