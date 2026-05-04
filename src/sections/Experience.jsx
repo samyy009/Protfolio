@@ -4,54 +4,61 @@ import { experience } from '../data/experience';
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div className="mb-16">
-          <p className="text-green-400 text-sm font-bold uppercase tracking-widest mb-2">Career</p>
+    <section id="experience" className="py-28">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <p className="text-green-400 text-xs font-black uppercase tracking-[0.2em] mb-3">Career</p>
           <TextReveal
             text="Professional Experience"
             className="text-4xl md:text-6xl font-black text-white"
           />
-        </div>
+        </motion.div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-green-500/50 via-white/10 to-transparent" />
+        <div className="relative pl-8 md:pl-12">
+          {/* Vertical gradient line */}
+          <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-green-500 via-green-500/30 to-transparent" />
 
-          <div className="space-y-16 pl-10">
-            {experience.map((exp, index) => (
+          <div className="space-y-14">
+            {experience.map((exp, i) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
+                key={i}
+                initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative"
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: i * 0.12, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="relative group"
               >
                 {/* Timeline dot */}
-                <div className="absolute -left-[41px] top-1 w-3 h-3 rounded-full border-2 border-green-400 bg-black" />
+                <motion.div
+                  whileInView={{ scale: [0, 1.3, 1] }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.12 + 0.2 }}
+                  className="absolute -left-[33px] md:-left-[45px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-green-400 bg-black group-hover:bg-green-400 transition-colors duration-300"
+                />
 
-                {/* Duration badge */}
-                <span className="inline-block px-3 py-1 text-[11px] font-bold text-green-400 border border-green-500/30 rounded-full mb-3 uppercase tracking-widest">
-                  {exp.duration}
-                </span>
-
-                <div className="border border-white/8 rounded-2xl p-8 hover:border-green-500/20 transition-colors group">
-                  <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                {/* Card */}
+                <div className="border border-white/6 rounded-2xl p-7 md:p-9 hover:border-green-500/25 hover:bg-green-500/2 transition-all duration-500 group">
+                  <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
                     <div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-green-400 transition-colors mb-1">
+                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-green-400 transition-colors duration-300 mb-1">
                         {exp.role}
                       </h3>
-                      <p className="text-sm text-white/40 font-medium">
+                      <p className="text-sm text-white/35 font-medium">
                         {exp.company}
-                        <span className="mx-2">·</span>
+                        <span className="mx-2 text-white/15">·</span>
                         {exp.location}
                       </p>
                     </div>
+                    <span className="flex-shrink-0 px-4 py-1.5 text-[10px] font-black text-green-400 border border-green-500/30 rounded-full uppercase tracking-widest">
+                      {exp.duration}
+                    </span>
                   </div>
-                  <p className="text-sm text-white/40 leading-relaxed">{exp.description}</p>
+                  <p className="text-sm text-white/35 leading-relaxed">{exp.description}</p>
                 </div>
               </motion.div>
             ))}

@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './sections/Hero';
@@ -14,14 +15,11 @@ import SectionWrapper from './components/SectionWrapper';
 import SmoothScroll from './components/SmoothScroll';
 import MatrixLoader from './components/MatrixLoader';
 import ParticleBackground from './components/ParticleBackground';
-import { motion, AnimatePresence } from 'framer-motion';
+import ScrollProgress from './components/ScrollProgress';
 
 function App() {
   const [loading, setLoading] = useState(true);
-
-  const handleLoaded = useCallback(() => {
-    setLoading(false);
-  }, []);
+  const handleLoaded = useCallback(() => setLoading(false), []);
 
   return (
     <>
@@ -37,34 +35,46 @@ function App() {
             transition={{ duration: 0.8 }}
           >
             <SmoothScroll>
-              <div className="min-h-screen text-white font-sans selection:bg-green-500 selection:text-black cursor-none" style={{ background: '#000' }}>
+              <div
+                className="min-h-screen text-white font-sans cursor-none overflow-x-hidden"
+                style={{ background: '#000', fontFamily: "'Inter', system-ui, sans-serif" }}
+              >
+                {/* Global overlays */}
                 <CustomCursor />
                 <ParticleBackground />
                 <SpotlightBackground />
+                <ScrollProgress />
+
                 <Navbar />
+
                 <main className="relative z-10">
-                  <SectionWrapper id="hero">
-                    <Hero />
-                  </SectionWrapper>
+                  <Hero />
+
                   <SectionWrapper id="about">
                     <About />
                   </SectionWrapper>
-                  <SectionWrapper id="skills">
-                    <Skills />
-                  </SectionWrapper>
+
                   <SectionWrapper id="projects">
                     <Projects />
                   </SectionWrapper>
+
                   <SectionWrapper id="experience">
                     <Experience />
                   </SectionWrapper>
+
+                  <SectionWrapper id="skills">
+                    <Skills />
+                  </SectionWrapper>
+
                   <SectionWrapper id="achievements">
                     <Achievements />
                   </SectionWrapper>
+
                   <SectionWrapper id="contact">
                     <Contact />
                   </SectionWrapper>
                 </main>
+
                 <Footer />
               </div>
             </SmoothScroll>
