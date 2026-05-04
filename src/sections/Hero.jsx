@@ -33,7 +33,7 @@ const Hero = () => {
         >
           <div className="absolute inset-0 rounded-full bg-orange-500/25 blur-2xl animate-pulse pointer-events-none" />
           <img
-            src="/assets/profile.png"
+            src="https://github.com/samyy009.png"
             alt="Sameer Sangam"
             className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-orange-500/60 object-cover shadow-2xl shadow-orange-500/20"
             onError={(e) => {
