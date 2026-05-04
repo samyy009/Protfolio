@@ -22,6 +22,7 @@ const Hero = () => {
 
   return (
     <section ref={ref} id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
+      <FloatingIcons />
       <motion.div style={{ opacity, y }} className="relative z-10 max-w-5xl mx-auto px-6 text-center w-full">
 
         {/* Avatar */}

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import TextReveal from '../components/TextReveal';
+import Magnetic from '../components/Magnetic';
 
 const About = () => {
   const infoItems = [
@@ -70,8 +71,8 @@ const About = () => {
               </p>
             </div>
 
-            {/* Info grid */}
-            <div className="grid grid-cols-2 gap-4 mb-10">
+            {/* Info grid - Bento Style */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
               {infoItems.map((item, i) => (
                 <motion.div
                   key={i}
@@ -79,10 +80,10 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="glass-morphism rounded-2xl p-5 hover:border-blue-500/30 transition-all duration-300 group"
+                  className={`glass-morphism rounded-2xl p-5 hover:border-blue-500/30 transition-all duration-300 group ${i === 0 || i === 3 ? 'md:col-span-2' : ''}`}
                 >
                   <p className="text-[10px] text-blue-400 font-black uppercase tracking-widest mb-1.5">{item.label}</p>
-                  <p className="text-sm text-slate-300 font-semibold group-hover:text-white transition-colors break-all">{item.value}</p>
+                  <p className="text-sm text-slate-300 font-semibold group-hover:text-white transition-colors break-all leading-tight">{item.value}</p>
                 </motion.div>
               ))}
             </div>
@@ -94,17 +95,19 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex gap-6 flex-wrap"
             >
-              <a
-                href="https://www.linkedin.com/in/sameersangam/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-2.5 bg-white/5 border border-white/10 hover:border-orange-500/40 rounded-full text-sm font-bold text-orange-400 hover:text-white transition-all group flex items-center gap-2"
-              >
-                LinkedIn Profile
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-              </a>
+              <Magnetic>
+                <a
+                  href="https://www.linkedin.com/in/sameersangam/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-3 bg-white/5 border border-white/10 hover:border-orange-500/40 rounded-full text-sm font-bold text-orange-400 hover:text-white transition-all group flex items-center gap-2"
+                >
+                  LinkedIn Profile
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
+              </Magnetic>
             </motion.div>
           </div>
         </div>

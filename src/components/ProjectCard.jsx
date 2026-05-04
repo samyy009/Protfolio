@@ -123,16 +123,13 @@ const ProjectCard = ({ project }) => {
             className="relative group cursor-pointer"
             onClick={() => setIsModalOpen(true)}
           >
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 group-hover:border-orange-500/40 transition-colors shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent z-10 group-hover:from-orange-500/10 transition-all" />
-              <img
+            <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group-hover:border-orange-500/40 transition-colors shadow-2xl">
+              <ParallaxImage
                 src={project.image}
                 alt={project.title}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-                onError={(e) => {
-                  e.target.src = `https://placehold.co/800x500/0a0a0a/f97316?text=${project.title}`;
-                }}
+                className="w-full h-full"
               />
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent z-10 group-hover:from-orange-500/10 transition-all pointer-events-none" />
             </div>
             {/* Glow effect */}
             <div className="absolute -inset-2 bg-orange-500/10 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
