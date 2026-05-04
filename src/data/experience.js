@@ -1,30 +1,16 @@
 export const experience = [
   {
-    role: "Software Development Intern",
-    company: "Bitwise Learn",
-    duration: "Feb 2026 - Present",
+    role: "Full Stack Developer (Self-Project)",
+    company: "Laces and Soles Boutique",
+    duration: "2024 - Present",
     location: "Remote",
-    description: "Contributing to the development and enhancement of the Bitwise Learn platform. Collaborating on features and improving user experience while gaining hands-on experience in real-world workflows."
+    description: "Leading the development of a production-ready e-commerce platform. Implementing complex features like Facebook OAuth, real-time tracking, and optimized mobile experiences."
   },
   {
-    role: "AI/ML Development Intern",
-    company: "Viswam AI",
-    duration: "May 2025 - July 2025",
-    location: "Hybrid",
-    description: "Built VerseVaani (Sanskrit Interpretation Assistant) and WhispNote. Contributed to India's first regional language LLM — Viswam AI's Telugu LLM."
-  },
-  {
-    role: "AI Research Intern",
-    company: "IIT Kanpur",
-    duration: "Jan 2025 - Feb 2025",
-    location: "Remote",
-    description: "Worked on a Book Summarizer project using Machine Learning, Deep Learning, and NLP. Conducted research on state-of-the-art document understanding techniques."
-  },
-  {
-    role: "Fellow Trainee",
-    company: "T-Hub Kickstart Program",
-    duration: "Feb 2024 - Apr 2024",
-    location: "Hybrid",
-    description: "Completed the Kickstart Entrepreneurship Program focused on design thinking and idea validation. Developed entrepreneurial mindset and startup fundamentals."
+    role: "Web Development Enthusiast",
+    company: "Independent Learner",
+    duration: "2023 - 2024",
+    location: "Hyderabad, India",
+    description: "Focused on mastering the MERN/PERN stack. Built several landing pages and small-scale web applications to refine frontend and backend skills."
   }
 ];

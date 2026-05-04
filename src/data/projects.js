@@ -1,39 +1,29 @@
 export const projects = [
   {
-    title: "KogniCare",
-    tagline: "AI-Powered Patient Monitoring",
-    description: "An AI-powered patient monitoring platform that combines real-time health tracking, video analytics, and predictive insights to help hospitals detect emergencies early, reduce human error, and improve patient care.",
-    tech: ["AI", "Video Analytics", "Predictive Modeling"],
-    features: ["Real-time health tracking with AI", "Video-based patient monitoring", "Predictive emergency detection"],
-    image: "/assets/projects/kognicare.png",
-    github: "#",
+    title: "Laces and Soles",
+    tagline: "Premium Boutique E-commerce",
+    description: "A full-stack e-commerce platform for a shoe boutique, featuring a modern React frontend and a robust Flask backend with MySQL database integration.",
+    tech: ["React", "Flask", "MySQL", "Tailwind CSS"],
+    features: ["Real-time inventory management", "Secure user authentication & OAuth", "Dynamic product grid & wishlist"],
+    image: "/assets/projects/shoe.png",
+    github: "https://github.com/samyy009/Laces_and_Soles",
     demo: "#"
   },
   {
-    title: "Move",
-    tagline: "Post-Event Stock Movement Analysis",
-    description: "A production-ready AI system that performs post-event causal analysis on stock price movements using historical market data and news signals.",
-    tech: ["Python", "Financial Analysis", "Causal AI"],
-    features: ["Causal analysis of stock movements", "Market data and news integration", "Evidence-backed explanations"],
-    image: "/assets/projects/move.png",
-    github: "#",
-    demo: "#"
-  },
-  {
-    title: "WhispNote",
-    tagline: "Multilingual Voice Intelligence",
-    description: "An open-source AI-integrated voice note application for multilingual users, using Whisper and IndicBART for transcription and analysis.",
-    tech: ["Whisper", "IndicBART", "Multilingual NLP"],
-    features: ["AI-powered multilingual transcription", "Automatic summarization", "Indic language support"],
-    image: "/assets/projects/whispnote.png",
-    github: "#",
+    title: "Portfolio Application",
+    tagline: "Modern Professional Portfolio",
+    description: "A high-end, responsive portfolio application built with React and Tailwind CSS v4, featuring glassmorphic design and smooth animations.",
+    tech: ["React", "Tailwind CSS v4", "Vite"],
+    features: ["Fully responsive design", "Customized UI components", "Optimized performance"],
+    image: "/assets/projects/portfolio.png",
+    github: "https://github.com/samyy009/Protfolio",
     demo: "#"
   }
 ];
 
 export const stats = [
-  { label: "Years Experience", value: "01+" },
-  { label: "Major Projects", value: "10+" },
-  { label: "Hackathon Wins", value: "05+" },
-  { label: "GitHub Contributions", value: "500+" }
+  { label: "Projects Completed", value: "05+" },
+  { label: "Coffee Consumed", value: "100+" },
+  { label: "Hackathon Participation", value: "03+" },
+  { label: "GitHub Commits", value: "200+" }
 ];

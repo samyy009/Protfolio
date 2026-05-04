@@ -9,25 +9,25 @@ const Hero = () => {
             <div className="absolute inset-0 bg-teal-500 blur-2xl opacity-20 rounded-full"></div>
             <img 
               src="/assets/profile.png" 
-              alt="Kuppili Nikhilesh Raju" 
+              alt="Sameer Sangam" 
               className="relative w-32 h-32 md:w-48 md:h-48 rounded-full border-2 border-teal-500/50 object-cover shadow-2xl"
               onError={(e) => {
-                e.target.src = 'https://ui-avatars.com/api/?name=Nikhilesh+Raju&background=0D8ABC&color=fff&size=256';
+                e.target.src = 'https://ui-avatars.com/api/?name=Sameer+Sangam&background=0D8ABC&color=fff&size=256';
               }}
             />
           </div>
           <h1 className="text-4xl md:text-7xl font-extrabold mb-6 tracking-tight text-white">
-            Kuppili <span className="text-teal-400">Nikhilesh Raju</span>
+            Sameer <span className="text-teal-400">Sangam</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-400 mb-4 max-w-3xl mx-auto font-medium">
-            AI/ML Engineer & Enthusiast
+            Full Stack Web Developer
           </p>
           <p className="text-lg text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Passionate about building impactful, real-world solutions using Artificial Intelligence and emerging technologies.
+            Crafting high-performance web applications and boutique e-commerce experiences with React, Flask, and modern tech stacks.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-16">
-            <a href="https://nikhileshraju.me/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-8 py-3 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-teal-500/20">
-              Download CV
+            <a href="#projects" className="px-8 py-3 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-teal-500/20">
+              View My Work
             </a>
             <a href="#contact" className="px-8 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold rounded-lg transition-all transform hover:scale-105">
               Contact Me
