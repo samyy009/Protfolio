@@ -16,6 +16,7 @@ import SmoothScroll from './components/SmoothScroll';
 import MatrixLoader from './components/MatrixLoader';
 import ParticleBackground from './components/ParticleBackground';
 import ScrollProgress from './components/ScrollProgress';
+import BackToTop from './components/BackToTop';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -76,6 +77,7 @@ function App() {
                 </main>
 
                 <Footer />
+                <BackToTop />
               </div>
             </SmoothScroll>
           </motion.div>

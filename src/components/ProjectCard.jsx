@@ -129,7 +129,7 @@ const ProjectCard = ({ project }) => {
                 alt={project.title}
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
                 onError={(e) => {
-                  e.target.src = `https://placehold.co/800x500/0a0a0a/00ff41?text=${project.title}`;
+                  e.target.src = `https://placehold.co/800x500/0a0a0a/f97316?text=${project.title}`;
                 }}
               />
             </div>
@@ -138,14 +138,14 @@ const ProjectCard = ({ project }) => {
           </motion.div>
         </div>
       </div>
-
+ 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <div className="p-10">
           <h2 className="text-3xl font-bold text-white mb-2 flex items-center gap-2">
             <span className="text-orange-400">{'<'}</span>{project.title}<span className="text-orange-400">{'>'}</span>
           </h2>
           <p className="text-orange-400 italic mb-6">{project.tagline}</p>
-          <img src={project.image} alt={project.title} className="w-full rounded-xl mb-6" onError={(e) => { e.target.src = `https://placehold.co/800x400/0a0a0a/00ff41?text=${project.title}`; }} />
+          <img src={project.image} alt={project.title} className="w-full rounded-xl mb-6" onError={(e) => { e.target.src = `https://placehold.co/800x400/0a0a0a/f97316?text=${project.title}`; }} />
           <p className="text-gray-400 mb-6">{project.description}</p>
           <div className="flex flex-wrap gap-2">
             {project.tech.map((t, i) => (
