@@ -71,8 +71,8 @@ const About = () => {
               </p>
             </div>
 
-            {/* Info grid - Bento Style */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            {/* Info grid - Balanced Bento Style */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {infoItems.map((item, i) => (
                 <motion.div
                   key={i}
@@ -80,10 +80,12 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className={`glass-morphism rounded-2xl p-5 hover:border-blue-500/30 transition-all duration-300 group ${i === 0 || i === 3 ? 'md:col-span-2' : ''}`}
+                  className="glass-morphism rounded-2xl p-6 hover:border-blue-500/30 transition-all duration-300 group"
                 >
-                  <p className="text-[10px] text-blue-400 font-black uppercase tracking-widest mb-1.5">{item.label}</p>
-                  <p className="text-sm text-slate-300 font-semibold group-hover:text-white transition-colors break-all leading-tight">{item.value}</p>
+                  <p className="text-[10px] text-blue-400 font-black uppercase tracking-widest mb-2">{item.label}</p>
+                  <p className="text-sm md:text-base text-slate-200 font-bold group-hover:text-white transition-colors break-all leading-tight">
+                    {item.value}
+                  </p>
                 </motion.div>
               ))}
             </div>
