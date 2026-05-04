@@ -52,27 +52,27 @@ function App() {
                 <main className="relative z-10">
                   <Hero />
 
-                  <SectionWrapper id="about">
+                  <SectionWrapper>
                     <About />
                   </SectionWrapper>
 
-                  <SectionWrapper id="projects">
+                  <SectionWrapper>
                     <Projects />
                   </SectionWrapper>
 
-                  <SectionWrapper id="experience">
+                  <SectionWrapper>
                     <Experience />
                   </SectionWrapper>
 
-                  <SectionWrapper id="skills">
+                  <SectionWrapper>
                     <Skills />
                   </SectionWrapper>
 
-                  <SectionWrapper id="achievements">
+                  <SectionWrapper>
                     <Achievements />
                   </SectionWrapper>
 
-                  <SectionWrapper id="contact">
+                  <SectionWrapper>
                     <Contact />
                   </SectionWrapper>
                 </main>
