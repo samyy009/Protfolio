@@ -37,7 +37,7 @@ const Navbar = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-xl font-black text-white tracking-tight hover:text-green-400 transition-colors"
+            className="text-xl font-black text-white tracking-tight hover:text-orange-400 transition-colors"
           >
             Sameer Sangam
           </motion.a>
@@ -52,11 +52,11 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.07, duration: 0.5 }}
                 className={`text-xs font-black tracking-[0.15em] transition-colors relative group ${
-                  active === link.id ? 'text-green-400' : 'text-white/50 hover:text-white'
+                  active === link.id ? 'text-orange-400' : 'text-white/50 hover:text-white'
                 }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1 left-0 h-px bg-green-400 transition-all duration-300 ${
+                <span className={`absolute -bottom-1 left-0 h-px bg-orange-400 transition-all duration-300 ${
                   active === link.id ? 'w-full' : 'w-0 group-hover:w-full'
                 }`} />
               </motion.a>
@@ -66,7 +66,7 @@ const Navbar = () => {
           {/* Mobile burger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white hover:text-green-400 transition-colors"
+            className="md:hidden p-2 text-white hover:text-orange-400 transition-colors"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -92,7 +92,7 @@ const Navbar = () => {
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={`block py-4 text-xs font-black tracking-widest border-b border-white/5 transition-colors ${
-                    active === link.id ? 'text-green-400' : 'text-white/50 hover:text-white'
+                    active === link.id ? 'text-orange-400' : 'text-white/50 hover:text-white'
                   }`}
                 >
                   {link.name}

@@ -15,79 +15,69 @@ const ParticleBackground = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Create particles (the floating green dots)
-    const particles = Array.from({ length: 80 }, () => ({
+    // Orange floating particles
+    const particles = Array.from({ length: 75 }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      r: Math.random() * 2 + 0.5,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      opacity: Math.random() * 0.5 + 0.2,
+      r: Math.random() * 1.8 + 0.4,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      opacity: Math.random() * 0.45 + 0.15,
     }));
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((p) => {
-        // Draw glowing dot
-        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
-        gradient.addColorStop(0, `rgba(0, 255, 65, ${p.opacity})`);
-        gradient.addColorStop(1, 'rgba(0, 255, 65, 0)');
-
+        // Outer glow
+        const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
+        grd.addColorStop(0, `rgba(249,115,22,${p.opacity})`);
+        grd.addColorStop(1, 'rgba(249,115,22,0)');
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
+        ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2);
+        ctx.fillStyle = grd;
         ctx.fill();
 
+        // Solid core dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 255, 65, ${p.opacity})`;
+        ctx.fillStyle = `rgba(251,146,60,${p.opacity + 0.2})`;
         ctx.fill();
 
-        // Move
         p.x += p.vx;
         p.y += p.vy;
-
-        // Wrap around
         if (p.x < 0) p.x = canvas.width;
         if (p.x > canvas.width) p.x = 0;
         if (p.y < 0) p.y = canvas.height;
         if (p.y > canvas.height) p.y = 0;
       });
 
-      // Draw connecting lines between close particles
-      particles.forEach((p, i) => {
-        particles.slice(i + 1).forEach((q) => {
-          const dist = Math.hypot(p.x - q.x, p.y - q.y);
-          if (dist < 120) {
+      // Connecting lines between close particles
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+          if (dist < 130) {
             ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = `rgba(0, 255, 65, ${0.05 * (1 - dist / 120)})`;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(249,115,22,${0.06 * (1 - dist / 130)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
-        });
-      });
+        }
+      }
 
       animId = requestAnimationFrame(draw);
     };
 
     draw();
-
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener('resize', resize);
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0"
-      style={{ opacity: 0.6 }}
-    />
-  );
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" style={{ opacity: 0.55 }} />;
 };
 
 export default ParticleBackground;

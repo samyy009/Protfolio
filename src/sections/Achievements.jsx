@@ -55,7 +55,7 @@ const Achievements = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-green-400 text-xs font-black uppercase tracking-[0.2em] mb-3"
+              className="text-orange-400 text-xs font-black uppercase tracking-[0.2em] mb-3"
             >
               Achievements
             </motion.p>
@@ -69,7 +69,7 @@ const Achievements = () => {
           <div className="flex gap-3 flex-shrink-0">
             <button
               onClick={prev}
-              className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center text-white hover:border-green-400 hover:text-green-400 hover:bg-green-400/5 transition-all duration-200 group"
+              className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center text-white hover:border-orange-400 hover:text-orange-400 hover:bg-orange-400/5 transition-all duration-200 group"
             >
               <svg className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"/>
@@ -77,7 +77,7 @@ const Achievements = () => {
             </button>
             <button
               onClick={next}
-              className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center text-white hover:border-green-400 hover:text-green-400 hover:bg-green-400/5 transition-all duration-200 group"
+              className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center text-white hover:border-orange-400 hover:text-orange-400 hover:bg-orange-400/5 transition-all duration-200 group"
             >
               <svg className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
@@ -96,13 +96,13 @@ const Achievements = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.45, delay: i * 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="border border-white/6 rounded-2xl p-8 hover:border-green-500/25 hover:bg-green-500/2 transition-all duration-400 group cursor-default"
+                className="border border-white/6 rounded-2xl p-8 hover:border-orange-500/25 hover:bg-orange-500/2 transition-all duration-400 group cursor-default"
               >
                 <div className="flex items-center justify-between mb-5">
-                  <span className="text-[10px] font-black text-green-400 uppercase tracking-widest">{item.org}</span>
+                  <span className="text-[10px] font-black text-orange-400 uppercase tracking-widest">{item.org}</span>
                   <span className="text-[10px] font-bold text-white/20 border border-white/8 px-2.5 py-1 rounded-full">{item.year}</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3 group-hover:text-green-400 transition-colors leading-snug">
+                <h3 className="text-lg font-bold text-white mb-3 group-hover:text-orange-400 transition-colors leading-snug">
                   {item.title}
                 </h3>
                 <p className="text-sm text-white/35 leading-relaxed">{item.desc}</p>
@@ -118,7 +118,7 @@ const Achievements = () => {
               key={i}
               onClick={() => setActiveIndex(i)}
               className={`rounded-full transition-all duration-300 ${
-                i === activeIndex ? 'bg-green-400 w-6 h-2' : 'bg-white/15 w-2 h-2 hover:bg-white/30'
+                i === activeIndex ? 'bg-orange-400 w-6 h-2' : 'bg-white/15 w-2 h-2 hover:bg-white/30'
               }`}
             />
           ))}

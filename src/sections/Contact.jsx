@@ -23,7 +23,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-green-400 text-sm font-bold uppercase tracking-widest mb-4">Get in touch</p>
+            <p className="text-orange-400 text-sm font-bold uppercase tracking-widest mb-4">Get in touch</p>
             <TextReveal
               text="Have a project in mind? Let's build it."
               className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight"
@@ -34,22 +34,22 @@ const Contact = () => {
 
             <div className="space-y-6">
               <div className="flex items-center gap-5 group">
-                <div className="w-12 h-12 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-green-500/50 group-hover:bg-green-500/5 transition-all">
-                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-orange-500/50 group-hover:bg-orange-500/5 transition-all">
+                  <svg className="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                   </svg>
                 </div>
                 <div>
                   <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest mb-0.5">Email</p>
-                  <a href="mailto:sameer@example.com" className="text-white font-bold hover:text-green-400 transition-colors">
+                  <a href="mailto:sameer@example.com" className="text-white font-bold hover:text-orange-400 transition-colors">
                     sameer@example.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-5 group">
-                <div className="w-12 h-12 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-green-500/50 group-hover:bg-green-500/5 transition-all">
-                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-orange-500/50 group-hover:bg-orange-500/5 transition-all">
+                  <svg className="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                   </svg>
@@ -61,14 +61,14 @@ const Contact = () => {
               </div>
 
               <div className="flex items-center gap-5 group">
-                <div className="w-12 h-12 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-green-500/50 group-hover:bg-green-500/5 transition-all">
-                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-orange-500/50 group-hover:bg-orange-500/5 transition-all">
+                  <svg className="w-5 h-5 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                   </svg>
                 </div>
                 <div>
                   <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest mb-0.5">GitHub</p>
-                  <a href="https://github.com/samyy009" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-green-400 transition-colors">
+                  <a href="https://github.com/samyy009" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-orange-400 transition-colors">
                     github.com/samyy009
                   </a>
                 </div>
@@ -94,7 +94,7 @@ const Contact = () => {
                       required
                       type={i === 1 ? 'email' : 'text'}
                       placeholder={i === 0 ? 'Sameer Sangam' : 'hello@example.com'}
-                      className="w-full bg-white/3 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/20 focus:outline-none focus:border-green-500/50 transition-colors"
+                      className="w-full bg-white/3 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/20 focus:outline-none focus:border-orange-500/50 transition-colors"
                     />
                   </div>
                 ))}
@@ -105,12 +105,12 @@ const Contact = () => {
                   required
                   rows="5"
                   placeholder="Tell me about your project..."
-                  className="w-full bg-white/3 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/20 focus:outline-none focus:border-green-500/50 transition-colors resize-none"
+                  className="w-full bg-white/3 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/20 focus:outline-none focus:border-orange-500/50 transition-colors resize-none"
                 />
               </div>
               <button
                 disabled={formState !== 'idle'}
-                className="w-full py-4 bg-green-500 hover:bg-green-400 disabled:bg-white/10 text-black font-black rounded-xl transition-all shadow-lg shadow-green-500/20 text-sm tracking-wide"
+                className="w-full py-4 bg-orange-500 hover:bg-orange-400 disabled:bg-white/10 text-black font-black rounded-xl transition-all shadow-lg shadow-orange-500/20 text-sm tracking-wide"
               >
                 {formState === 'idle' && 'Send Message'}
                 {formState === 'submitting' && 'Sending...'}

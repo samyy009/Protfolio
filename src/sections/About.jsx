@@ -22,8 +22,8 @@ const About = () => {
             transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="relative order-2 lg:order-1 group"
           >
-            <div className="relative rounded-3xl overflow-hidden border border-white/8 group-hover:border-green-500/25 transition-colors duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/8 via-transparent to-transparent z-10" />
+            <div className="relative rounded-3xl overflow-hidden border border-white/8 group-hover:border-orange-500/25 transition-colors duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/8 via-transparent to-transparent z-10" />
               <img
                 src="https://placehold.co/700x850/030303/1a1a1a?text=%20"
                 alt="Sameer Sangam"
@@ -32,12 +32,12 @@ const About = () => {
               {/* Overlay badge */}
               <div className="absolute bottom-6 left-6 right-6 z-20">
                 <div className="backdrop-blur-xl bg-black/60 border border-white/10 rounded-2xl px-5 py-4 flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse" />
+                  <div className="w-2.5 h-2.5 bg-orange-400 rounded-full animate-pulse" />
                   <span className="text-white text-sm font-bold">Available for freelance & full-time</span>
                 </div>
               </div>
             </div>
-            <div className="absolute -inset-4 bg-green-500/4 rounded-3xl blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute -inset-4 bg-orange-500/4 rounded-3xl blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </motion.div>
 
           {/* Text col */}
@@ -47,7 +47,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-green-400 text-xs font-black uppercase tracking-[0.2em] mb-4"
+              className="text-orange-400 text-xs font-black uppercase tracking-[0.2em] mb-4"
             >
               About Me
             </motion.p>
@@ -78,9 +78,9 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="border border-white/6 rounded-xl p-4 hover:border-green-500/25 hover:bg-green-500/3 transition-all duration-300 group"
+                  className="border border-white/6 rounded-xl p-4 hover:border-orange-500/25 hover:bg-orange-500/3 transition-all duration-300 group"
                 >
-                  <p className="text-[10px] text-green-400 font-black uppercase tracking-widest mb-1.5">{item.label}</p>
+                  <p className="text-[10px] text-orange-400 font-black uppercase tracking-widest mb-1.5">{item.label}</p>
                   <p className="text-sm text-white/70 font-medium group-hover:text-white transition-colors">{item.value}</p>
                 </motion.div>
               ))}
@@ -94,7 +94,7 @@ const About = () => {
             >
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 text-sm font-bold text-green-400 hover:text-green-300 transition-colors group"
+                className="inline-flex items-center gap-2 text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors group"
               >
                 View my projects
                 <svg className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

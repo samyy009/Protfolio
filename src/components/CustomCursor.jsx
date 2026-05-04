@@ -5,11 +5,9 @@ const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
 
-  // Core position values
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Spring settings for smooth trailing effect
   const springConfig = { damping: 25, stiffness: 300 };
   const trailX = useSpring(mouseX, springConfig);
   const trailY = useSpring(mouseY, springConfig);
@@ -19,60 +17,50 @@ const CustomCursor = () => {
     mouseY.set(e.clientY);
   }, [mouseX, mouseY]);
 
-  const handleMouseDown = () => setIsClicking(true);
-  const handleMouseUp = () => setIsClicking(false);
-
   useEffect(() => {
     const handleMouseOver = (e) => {
-      const target = e.target;
-      const isClickable = 
-        target.tagName === 'A' || 
-        target.tagName === 'BUTTON' || 
-        target.closest('a') || 
-        target.closest('button') ||
-        target.getAttribute('role') === 'button' ||
-        target.tagName === 'INPUT' ||
-        target.tagName === 'TEXTAREA';
-      
-      setIsHovering(isClickable);
+      const t = e.target;
+      setIsHovering(
+        t.tagName === 'A' || t.tagName === 'BUTTON' ||
+        t.closest('a') || t.closest('button') ||
+        t.tagName === 'INPUT' || t.tagName === 'TEXTAREA'
+      );
     };
+    const down = () => setIsClicking(true);
+    const up = () => setIsClicking(false);
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseover', handleMouseOver);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
+    window.addEventListener('mousedown', down);
+    window.addEventListener('mouseup', up);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseover', handleMouseOver);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener('mousedown', down);
+      window.removeEventListener('mouseup', up);
     };
   }, [handleMouseMove]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[9999] hidden md:block">
-      {/* Main Dot */}
+      {/* Instant dot — orange */}
       <motion.div
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-teal-400 rounded-full mix-blend-difference"
-        style={{
-          x: mouseX,
-          y: mouseY,
-          translateX: "-50%",
-          translateY: "-50%",
-        }}
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-orange-400 rounded-full"
+        style={{ x: mouseX, y: mouseY, translateX: '-50%', translateY: '-50%' }}
       />
-      
-      {/* Trailing Circle */}
+      {/* Trailing ring — orange */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-teal-500/50 rounded-full bg-teal-500/5"
+        className="fixed top-0 left-0 rounded-full border border-orange-500/50 bg-orange-500/5"
         style={{
           x: trailX,
           y: trailY,
-          translateX: "-50%",
-          translateY: "-50%",
-          scale: isClicking ? 0.8 : isHovering ? 2 : 1,
-          opacity: isHovering ? 0.8 : 0.5,
+          translateX: '-50%',
+          translateY: '-50%',
+          width: isHovering ? 48 : 32,
+          height: isHovering ? 48 : 32,
+          opacity: isClicking ? 0.6 : isHovering ? 0.9 : 0.5,
+          scale: isClicking ? 0.8 : 1,
         }}
         transition={{ type: 'spring', damping: 20, stiffness: 200 }}
       />

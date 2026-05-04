@@ -8,7 +8,7 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header — exact match to reference */}
         <div className="mb-8">
-          <p className="text-green-400 text-sm font-bold uppercase tracking-widest mb-2">Portfolio</p>
+          <p className="text-orange-400 text-sm font-bold uppercase tracking-widest mb-2">Portfolio</p>
           <h2 className="text-5xl md:text-7xl font-black text-white">Latest Projects</h2>
         </div>
 

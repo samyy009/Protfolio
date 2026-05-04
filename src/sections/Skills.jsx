@@ -11,7 +11,7 @@ const techData = [
   { name: 'Git', color: '#F05032', letter: 'Git' },
   { name: 'Docker', color: '#2496ED', letter: '🐋' },
   { name: 'Tailwind', color: '#38BDF8', letter: 'TW', dark: true },
-  { name: 'Node.js', color: '#339933', letter: 'NJ' },
+  { name: 'Node.js', color: '#f97316', letter: 'NJ' },
 ];
 
 const marqueeRow1 = [
@@ -38,7 +38,7 @@ const Marquee = ({ items, reverse = false, speed = 45 }) => (
       {[...items, ...items].map((item, i) => (
         <span
           key={i}
-          className="px-5 py-2.5 border border-white/8 text-white/40 text-xs font-semibold rounded-full whitespace-nowrap hover:border-green-500/50 hover:text-green-400 transition-all duration-300 cursor-default select-none"
+          className="px-5 py-2.5 border border-white/8 text-white/40 text-xs font-semibold rounded-full whitespace-nowrap hover:border-orange-500/50 hover:text-orange-400 transition-all duration-300 cursor-default select-none"
         >
           {item}
         </span>
@@ -58,7 +58,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-green-400 text-xs font-black uppercase tracking-[0.2em] mb-3">My Skills</p>
+          <p className="text-orange-400 text-xs font-black uppercase tracking-[0.2em] mb-3">My Skills</p>
           <TextReveal
             text="Technologies & Tools"
             className="text-4xl md:text-6xl font-black text-white justify-center mb-4"
@@ -77,7 +77,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.06, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="flex flex-col items-center gap-3 p-5 rounded-2xl border border-white/5 hover:border-green-500/30 hover:bg-green-500/4 transition-all duration-300 group cursor-default"
+              className="flex flex-col items-center gap-3 p-5 rounded-2xl border border-white/5 hover:border-orange-500/30 hover:bg-orange-500/4 transition-all duration-300 group cursor-default"
             >
               <div
                 className="w-14 h-14 rounded-xl flex items-center justify-center text-base font-black group-hover:scale-110 transition-transform duration-300 select-none"
@@ -85,7 +85,7 @@ const Skills = () => {
               >
                 {tech.letter}
               </div>
-              <span className="text-[11px] font-bold text-white/40 group-hover:text-green-400 transition-colors text-center leading-tight">
+              <span className="text-[11px] font-bold text-white/40 group-hover:text-orange-400 transition-colors text-center leading-tight">
                 {tech.name}
               </span>
             </motion.div>

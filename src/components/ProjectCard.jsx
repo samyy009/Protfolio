@@ -20,9 +20,9 @@ const ProjectCard = ({ project }) => {
               transition={{ duration: 0.6 }}
               className="text-3xl md:text-5xl font-bold text-white mb-3 flex items-center gap-3"
             >
-              <span className="text-green-400 font-light">{'<'}</span>
+              <span className="text-orange-400 font-light">{'<'}</span>
               {project.title}
-              <span className="text-green-400 font-light">{'>'}</span>
+              <span className="text-orange-400 font-light">{'>'}</span>
             </motion.h3>
 
             {/* Italic green tagline */}
@@ -31,7 +31,7 @@ const ProjectCard = ({ project }) => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-green-400 italic text-lg font-semibold mb-6"
+              className="text-orange-400 italic text-lg font-semibold mb-6"
             >
               {project.tagline}
             </motion.p>
@@ -59,7 +59,7 @@ const ProjectCard = ({ project }) => {
               <ul className="space-y-2">
                 {project.features.map((f, i) => (
                   <li key={i} className="flex items-start text-gray-400 text-sm">
-                    <span className="text-green-400 mr-3 font-bold">+</span>
+                    <span className="text-orange-400 mr-3 font-bold">+</span>
                     {f}
                   </li>
                 ))}
@@ -77,7 +77,7 @@ const ProjectCard = ({ project }) => {
               {project.tech.map((t, i) => (
                 <span
                   key={i}
-                  className="px-4 py-1.5 text-xs font-bold border border-green-500/40 text-green-400 rounded-full hover:bg-green-500/10 transition-colors"
+                  className="px-4 py-1.5 text-xs font-bold border border-orange-500/40 text-orange-400 rounded-full hover:bg-orange-500/10 transition-colors"
                 >
                   {t}
                 </span>
@@ -103,7 +103,7 @@ const ProjectCard = ({ project }) => {
               </a>
               <a
                 href={project.demo}
-                className="flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-400 text-black font-bold rounded-full transition-all shadow-lg shadow-green-500/30"
+                className="flex items-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-400 text-black font-bold rounded-full transition-all shadow-lg shadow-orange-500/30"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
@@ -122,8 +122,8 @@ const ProjectCard = ({ project }) => {
             className="relative group cursor-pointer"
             onClick={() => setIsModalOpen(true)}
           >
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 group-hover:border-green-500/40 transition-colors shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent z-10 group-hover:from-green-500/10 transition-all" />
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 group-hover:border-orange-500/40 transition-colors shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent z-10 group-hover:from-orange-500/10 transition-all" />
               <img
                 src={project.image}
                 alt={project.title}
@@ -134,7 +134,7 @@ const ProjectCard = ({ project }) => {
               />
             </div>
             {/* Glow effect */}
-            <div className="absolute -inset-2 bg-green-500/10 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+            <div className="absolute -inset-2 bg-orange-500/10 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
           </motion.div>
         </div>
       </div>
@@ -142,14 +142,14 @@ const ProjectCard = ({ project }) => {
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <div className="p-10">
           <h2 className="text-3xl font-bold text-white mb-2 flex items-center gap-2">
-            <span className="text-green-400">{'<'}</span>{project.title}<span className="text-green-400">{'>'}</span>
+            <span className="text-orange-400">{'<'}</span>{project.title}<span className="text-orange-400">{'>'}</span>
           </h2>
-          <p className="text-green-400 italic mb-6">{project.tagline}</p>
+          <p className="text-orange-400 italic mb-6">{project.tagline}</p>
           <img src={project.image} alt={project.title} className="w-full rounded-xl mb-6" onError={(e) => { e.target.src = `https://placehold.co/800x400/0a0a0a/00ff41?text=${project.title}`; }} />
           <p className="text-gray-400 mb-6">{project.description}</p>
           <div className="flex flex-wrap gap-2">
             {project.tech.map((t, i) => (
-              <span key={i} className="px-3 py-1 text-xs font-bold border border-green-500/40 text-green-400 rounded-full">{t}</span>
+              <span key={i} className="px-3 py-1 text-xs font-bold border border-orange-500/40 text-orange-400 rounded-full">{t}</span>
             ))}
           </div>
         </div>
