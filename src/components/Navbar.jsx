@@ -1,58 +1,97 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Achievements', href: '#achievements' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
   return (
-    <nav className="fixed w-full z-50 glass-card">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0">
-            <span className="text-2xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">Portfolio</span>
+    <nav 
+      className={`fixed w-full z-[100] transition-all duration-500 ${
+        scrolled ? 'py-4 bg-slate-950/80 backdrop-blur-lg border-b border-white/5' : 'py-8 bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="flex justify-between items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-2xl font-bold tracking-tighter"
+          >
+            Sameer <span className="text-teal-400">Sangam</span>
+          </motion.div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-10">
+            {navLinks.map((link, i) => (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="text-sm font-medium text-slate-400 hover:text-teal-400 transition-colors uppercase tracking-widest"
+              >
+                {link.name}
+              </motion.a>
+            ))}
           </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <a href="#about" className="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
-              <a href="#skills" className="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</a>
-              <a href="#projects" className="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Projects</a>
-              <a href="#experience" className="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Experience</a>
-              <a href="#contact" className="hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
-            </div>
-          </div>
-          <div className="-mr-2 flex md:hidden">
-            <button
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button 
               onClick={() => setIsOpen(!isOpen)}
-              type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
+              className="text-white focus:outline-none p-2"
             >
-              <span className="sr-only">Open main menu</span>
-              {!isOpen ? (
-                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              ) : (
-                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              )}
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+              </svg>
             </button>
           </div>
         </div>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden glass-card" id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#about" className="hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium">About</a>
-            <a href="#skills" className="hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium">Skills</a>
-            <a href="#projects" className="hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-            <a href="#experience" className="hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium">Experience</a>
-            <a href="#contact" className="hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
-          </div>
-        </div>
-      )}
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-slate-900/95 backdrop-blur-xl border-b border-slate-800"
+          >
+            <div className="px-6 py-8 space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block text-lg font-medium text-slate-400 hover:text-teal-400 py-2 border-b border-slate-800"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
