@@ -80,14 +80,18 @@ const Hero = () => {
           transition={{ delay: 1.4, duration: 0.7 }}
           className="flex flex-wrap items-center justify-center gap-6 mb-24"
         >
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
-            className="px-10 py-4 bg-gradient-to-r from-orange-500 via-purple-600 to-blue-600 hover:scale-105 text-white text-sm font-bold rounded-full transition-all shadow-2xl shadow-purple-500/20 tracking-wide uppercase">
-            Get In Touch
-          </a>
-          <a href="#projects"
-            className="px-10 py-4 border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-white text-sm font-bold rounded-full transition-all tracking-wide uppercase">
-            View Work
-          </a>
+          <Magnetic>
+            <a href="mailto:sameersangam66@gmail.com"
+              className="px-10 py-4 bg-gradient-to-r from-orange-500 via-purple-600 to-blue-600 hover:scale-105 text-white text-sm font-bold rounded-full transition-all shadow-2xl shadow-purple-500/20 tracking-wide uppercase">
+              Get In Touch
+            </a>
+          </Magnetic>
+          <Magnetic>
+            <a href="#projects"
+              className="px-10 py-4 border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-white text-sm font-bold rounded-full transition-all tracking-wide uppercase">
+              View Work
+            </a>
+          </Magnetic>
         </motion.div>
 
         {/* Stats */}

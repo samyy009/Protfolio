@@ -17,6 +17,7 @@ import MatrixLoader from './components/MatrixLoader';
 import ParticleBackground from './components/ParticleBackground';
 import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
+import Magnetic from './components/Magnetic';
 
 function App() {
   const [loading, setLoading] = useState(true);
