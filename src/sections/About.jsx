@@ -1,12 +1,15 @@
+import TextReveal from '../components/TextReveal';
+
 const About = () => {
   return (
     <section id="about" className="py-24 bg-slate-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1 space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
-              Building the Future of <span className="text-teal-400">Web Experiences</span>
-            </h2>
+            <TextReveal 
+              text="Building the Future of Web Experiences" 
+              className="text-3xl md:text-5xl font-bold text-white mb-8" 
+            />
             <p className="text-lg text-slate-400 leading-relaxed">
               I am a Full Stack Developer specialized in building scalable web applications. My most recent work involves leading the technical development of "Laces and Soles", a premium boutique application.
             </p>

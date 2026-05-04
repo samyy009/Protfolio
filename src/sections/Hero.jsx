@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { stats } from '../data/projects';
 import { useRef } from 'react';
+import TextReveal from '../components/TextReveal';
 
 const Hero = () => {
   const targetRef = useRef(null);
@@ -36,19 +37,15 @@ const Hero = () => {
           />
         </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-8xl font-extrabold mb-6 tracking-tight text-white leading-tight"
-        >
-          Sameer <span className="text-teal-400">Sangam</span>
-        </motion.h1>
+        <TextReveal 
+          text="Sameer Sangam" 
+          className="text-5xl md:text-8xl font-extrabold mb-6 tracking-tight text-white leading-tight justify-center" 
+        />
 
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="text-xl md:text-3xl text-slate-400 mb-6 max-w-3xl mx-auto font-medium"
         >
           Full Stack Web Developer
@@ -57,7 +54,7 @@ const Hero = () => {
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
           className="text-lg text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed"
         >
           Crafting high-performance web applications and boutique e-commerce experiences with React, Flask, and modern tech stacks.
@@ -66,7 +63,7 @@ const Hero = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
           className="flex flex-wrap justify-center gap-6 mb-20"
         >
           <a href="#projects" className="px-10 py-4 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-teal-500/30">
@@ -79,8 +76,8 @@ const Hero = () => {
 
         <motion.div 
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.4 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-4xl mx-auto py-16 border-t border-white/5"
         >
           {stats.map((stat, index) => (
@@ -92,7 +89,6 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Decorative Parallax Background Elements */}
       <motion.div 
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, -200]) }}
         className="absolute top-1/4 -left-20 w-64 h-64 bg-teal-500/10 blur-[120px] rounded-full z-0"
