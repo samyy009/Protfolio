@@ -23,7 +23,7 @@ const Hero = () => {
   const typedRole = useTypewriter(ROLES, 80, 50, 2200);
 
   return (
-    <section ref={ref} id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 overflow-hidden">
+    <section ref={ref} id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
       <FloatingIcons />
       <motion.div style={{ opacity, y }} className="relative z-10 max-w-5xl mx-auto px-6 text-center w-full">
 
@@ -32,7 +32,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: 'backOut' }}
-          className="relative inline-block mb-6"
+          className="relative inline-block mb-8"
         >
           <div className="absolute inset-0 rounded-full bg-orange-500/25 blur-2xl animate-pulse pointer-events-none" />
           <img
@@ -44,13 +44,13 @@ const Hero = () => {
             }}
           />
           {/* Online dot */}
-          <div className="absolute bottom-2 right-2 w-3.5 h-3.5 rounded-full bg-orange-400 border-2 border-black animate-pulse" />
+          <div className="absolute bottom-2 right-2 w-4 h-4 rounded-full bg-orange-400 border-2 border-black animate-pulse" />
         </motion.div>
 
         {/* Name */}
         <TextReveal
           text="Sameer Sangam"
-          className="text-5xl md:text-7xl font-black sunset-gradient leading-none mb-6 justify-center tracking-tighter"
+          className="text-6xl md:text-9xl font-black sunset-gradient leading-none mb-6 justify-center tracking-tighter"
         />
 
         {/* Typewriter */}
