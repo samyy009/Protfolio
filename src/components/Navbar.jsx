@@ -51,13 +51,13 @@ const Navbar = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.07, duration: 0.5 }}
-                className={`text-xs font-black tracking-[0.15em] transition-colors relative group ${
+                className={`text-xs font-black tracking-[0.15em] transition-colors relative group py-2 ${
                   active === link.id ? 'text-orange-400' : 'text-white/50 hover:text-white'
                 }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1 left-0 h-px bg-orange-400 transition-all duration-300 ${
-                  active === link.id ? 'w-full' : 'w-0 group-hover:w-full'
+                <span className={`absolute bottom-0 left-0 h-[2px] bg-orange-400 transition-all duration-500 ease-out ${
+                  active === link.id ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'
                 }`} />
               </motion.a>
             ))}
