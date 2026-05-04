@@ -10,8 +10,8 @@ import Contact from './sections/Contact';
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-50 font-sans selection:bg-teal-500 selection:text-white">
-      <div className="fixed inset-0 z-[-1] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-slate-900 to-black"></div>
+    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-teal-500 selection:text-white">
+      <div className="fixed inset-0 z-[-1] bg-[radial-gradient(circle_at_20%_30%,_var(--tw-gradient-stops))] from-slate-900/50 via-slate-950 to-slate-950"></div>
       <Navbar />
       <main>
         <Hero />

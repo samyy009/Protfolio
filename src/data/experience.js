@@ -1,14 +1,30 @@
 export const experience = [
   {
-    role: "Full Stack Developer Intern",
-    company: "Tech Solutions",
-    duration: "Jan 2026 - Present",
-    description: "Developing scalable web applications using React and Flask. Implementing dynamic user interfaces and optimizing backend performance."
+    role: "Software Development Intern",
+    company: "Bitwise Learn",
+    duration: "Feb 2026 - Present",
+    location: "Remote",
+    description: "Contributing to the development and enhancement of the Bitwise Learn platform. Collaborating on features and improving user experience while gaining hands-on experience in real-world workflows."
   },
   {
-    role: "Freelance Web Developer",
-    company: "Self-Employed",
-    duration: "2024 - 2025",
-    description: "Built responsive and modern websites for local businesses using HTML, CSS, and JavaScript."
+    role: "AI/ML Development Intern",
+    company: "Viswam AI",
+    duration: "May 2025 - July 2025",
+    location: "Hybrid",
+    description: "Built VerseVaani (Sanskrit Interpretation Assistant) and WhispNote. Contributed to India's first regional language LLM — Viswam AI's Telugu LLM."
+  },
+  {
+    role: "AI Research Intern",
+    company: "IIT Kanpur",
+    duration: "Jan 2025 - Feb 2025",
+    location: "Remote",
+    description: "Worked on a Book Summarizer project using Machine Learning, Deep Learning, and NLP. Conducted research on state-of-the-art document understanding techniques."
+  },
+  {
+    role: "Fellow Trainee",
+    company: "T-Hub Kickstart Program",
+    duration: "Feb 2024 - Apr 2024",
+    location: "Hybrid",
+    description: "Completed the Kickstart Entrepreneurship Program focused on design thinking and idea validation. Developed entrepreneurial mindset and startup fundamentals."
   }
 ];
