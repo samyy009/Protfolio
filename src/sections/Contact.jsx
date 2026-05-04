@@ -66,26 +66,31 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-orange-400 text-xs font-black uppercase tracking-[0.2em] mb-4">Get in touch</p>
+            <p className="text-blue-400 text-xs font-black uppercase tracking-[0.2em] mb-4">Get in touch</p>
             <TextReveal
               text="Have a project in mind? Let's build it."
-              className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight"
+              className="text-4xl md:text-5xl font-black sunset-gradient mb-8 leading-tight"
             />
-            <p className="text-white/35 mb-12 leading-relaxed text-sm">
+            <p className="text-slate-400 mb-12 leading-relaxed text-sm">
               I'm open to full-time roles, freelance projects, and collaboration opportunities. Whether you need data annotation expertise or a full stack web application built — I'd love to hear from you.
             </p>
 
             <div className="space-y-5">
               {contactInfo.map((item, i) => (
                 <div key={i} className="flex items-center gap-5 group">
-                  <div className="w-12 h-12 border border-white/8 rounded-2xl flex items-center justify-center group-hover:border-orange-500/50 group-hover:bg-orange-500/5 transition-all flex-shrink-0">
-                    {item.icon}
+                  <div className={`w-12 h-12 border border-white/8 rounded-2xl flex items-center justify-center group-hover:border-${i % 2 === 0 ? 'orange' : 'blue'}-500/50 group-hover:bg-${i % 2 === 0 ? 'orange' : 'blue'}-500/5 transition-all flex-shrink-0`}>
+                    {/* Re-coloring the icon */}
+                    {Object.assign({}, item.icon, {
+                      props: Object.assign({}, item.icon.props, {
+                        className: item.icon.props.className.replace('text-orange-400', i % 2 === 0 ? 'text-orange-400' : 'text-blue-400')
+                      })
+                    })}
                   </div>
                   <div>
-                    <p className="text-[10px] text-white/25 font-black uppercase tracking-widest mb-0.5">{item.label}</p>
+                    <p className="text-[10px] text-slate-500 font-black uppercase tracking-widest mb-0.5">{item.label}</p>
                     {item.href ? (
                       <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
-                        className="text-white font-bold hover:text-orange-400 transition-colors text-sm break-all">
+                        className={`text-white font-bold hover:text-${i % 2 === 0 ? 'orange' : 'blue'}-400 transition-colors text-sm break-all`}>
                         {item.value}
                       </a>
                     ) : (
@@ -102,29 +107,29 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="border border-white/8 rounded-3xl p-10"
+            className="glass-morphism rounded-3xl p-10"
           >
             <h3 className="text-xl font-bold text-white mb-8">Send Me a Message</h3>
             <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-[10px] font-black text-white/25 uppercase tracking-widest mb-2">Your Name</label>
+                  <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Your Name</label>
                   <input required type="text" placeholder="John Doe"
-                    className="w-full bg-white/2 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/15 focus:outline-none focus:border-orange-500/50 transition-colors"/>
+                    className="w-full bg-white/2 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/10 focus:outline-none focus:border-blue-500/50 transition-colors"/>
                 </div>
                 <div>
-                  <label className="block text-[10px] font-black text-white/25 uppercase tracking-widest mb-2">Email</label>
+                  <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Email</label>
                   <input required type="email" placeholder="hello@example.com"
-                    className="w-full bg-white/2 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/15 focus:outline-none focus:border-orange-500/50 transition-colors"/>
+                    className="w-full bg-white/2 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/10 focus:outline-none focus:border-orange-500/50 transition-colors"/>
                 </div>
               </div>
               <div>
-                <label className="block text-[10px] font-black text-white/25 uppercase tracking-widest mb-2">Message</label>
+                <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Message</label>
                 <textarea required rows="5" placeholder="Tell me about your project or opportunity..."
-                  className="w-full bg-white/2 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/15 focus:outline-none focus:border-orange-500/50 transition-colors resize-none"/>
+                  className="w-full bg-white/2 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/10 focus:outline-none focus:border-purple-500/50 transition-colors resize-none"/>
               </div>
               <button disabled={formState !== 'idle'}
-                className="w-full py-4 bg-orange-500 hover:bg-orange-400 disabled:bg-white/8 disabled:text-white/30 text-black font-black rounded-xl transition-all shadow-lg shadow-orange-500/20 text-sm tracking-wide">
+                className="w-full py-4 bg-gradient-to-r from-orange-500 via-purple-600 to-blue-600 hover:scale-[1.01] active:scale-[0.98] disabled:bg-white/8 disabled:text-white/30 text-white font-black rounded-xl transition-all shadow-lg shadow-purple-500/20 text-sm tracking-wide">
                 {formState === 'idle' && 'Send Message'}
                 {formState === 'submitting' && 'Sending...'}
                 {formState === 'success' && '✓ Message Sent!'}

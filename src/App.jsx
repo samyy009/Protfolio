@@ -14,7 +14,7 @@ import SpotlightBackground from './components/SpotlightBackground';
 import SectionWrapper from './components/SectionWrapper';
 import SmoothScroll from './components/SmoothScroll';
 import MatrixLoader from './components/MatrixLoader';
-import ParticleBackground from './components/ParticleBackground';
+import ThreeBackground from './components/ThreeBackground';
 import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
 import Magnetic from './components/Magnetic';
@@ -43,7 +43,7 @@ function App() {
               >
                 {/* Global overlays */}
                 <CustomCursor />
-                <ParticleBackground />
+                <ThreeBackground />
                 <SpotlightBackground />
                 <ScrollProgress />
 

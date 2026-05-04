@@ -21,7 +21,7 @@ const Magnetic = ({ children }) => {
 
   return (
     <motion.div
-      style={{ position: 'relative' }}
+      style={{ position: 'relative', display: 'inline-block' }}
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={reset}
