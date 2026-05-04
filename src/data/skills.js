@@ -1,18 +1,26 @@
 export const skills = [
-  { 
-    category: "Frontend", 
-    items: ["React.js", "JavaScript (ES6+)", "Tailwind CSS", "HTML5/CSS3", "Framer Motion", "Vite"] 
+  {
+    category: 'Programming',
+    items: ['Python', 'C', 'C++', 'Java', 'JavaScript', 'HTML', 'SQL'],
   },
-  { 
-    category: "Backend", 
-    items: ["Flask", "Python", "Node.js", "Express", "REST APIs", "OAuth 2.0"] 
+  {
+    category: 'Web Development',
+    items: ['React.js', 'Flask', 'Node.js', 'Tailwind CSS', 'REST APIs', 'OAuth 2.0'],
   },
-  { 
-    category: "Database", 
-    items: ["MySQL", "PostgreSQL", "MongoDB", "Redis", "Supabase"] 
+  {
+    category: 'Data & ML',
+    items: ['Semantic Segmentation', 'Bounding Box Annotations', 'Data Management', 'Ango Hub', 'ML Pipelines'],
   },
-  { 
-    category: "Tools & DevOps", 
-    items: ["Git/GitHub", "Docker", "Postman", "CI/CD Pipelines", "Vercel/Netlify"] 
-  }
+  {
+    category: 'Databases',
+    items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Data Management'],
+  },
+  {
+    category: 'Tools & Cloud',
+    items: ['Git', 'GitHub', 'Cloud Computing', 'MS Office Suite', 'Vite', 'Docker'],
+  },
+  {
+    category: 'Networking',
+    items: ['Physical Networking', 'Hardware Networking', 'Cyber Security', 'Networking Polygons'],
+  },
 ];
