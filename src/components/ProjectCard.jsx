@@ -8,7 +8,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <>
-      <div className="py-16 md:py-24 border-b border-white/5 last:border-0">
+      <div className="py-10 md:py-16 border-b border-white/5 last:border-0">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           
           {/* Left: Text Content */}

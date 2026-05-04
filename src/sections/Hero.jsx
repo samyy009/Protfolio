@@ -32,25 +32,25 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: 'backOut' }}
-          className="relative inline-block mb-8"
+          className="relative inline-block mb-4"
         >
           <div className="absolute inset-0 rounded-full bg-orange-500/25 blur-2xl animate-pulse pointer-events-none" />
           <img
             src="https://github.com/samyy009.png"
             alt="Sameer Sangam"
-            className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-orange-500/60 object-cover shadow-2xl shadow-orange-500/20"
+            className="relative w-28 h-28 md:w-36 md:h-36 rounded-full border-2 border-orange-500/60 object-cover shadow-2xl shadow-orange-500/20"
             onError={(e) => {
               e.target.src = 'https://ui-avatars.com/api/?name=SS&background=1a0800&color=f97316&size=256&bold=true';
             }}
           />
           {/* Online dot */}
-          <div className="absolute bottom-2 right-2 w-4 h-4 rounded-full bg-orange-400 border-2 border-black animate-pulse" />
+          <div className="absolute bottom-2 right-2 w-3.5 h-3.5 rounded-full bg-orange-400 border-2 border-black animate-pulse" />
         </motion.div>
 
         {/* Name */}
         <TextReveal
           text="Sameer Sangam"
-          className="text-6xl md:text-9xl font-black sunset-gradient leading-none mb-6 justify-center tracking-tighter"
+          className="text-5xl md:text-8xl font-black sunset-gradient leading-none mb-4 justify-center tracking-tighter"
         />
 
         {/* Typewriter */}
@@ -58,7 +58,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.0, duration: 0.6 }}
-          className="h-10 flex items-center justify-center mb-5"
+          className="h-8 flex items-center justify-center mb-4"
         >
           <span className="text-xl md:text-2xl text-blue-400/90 font-bold tracking-tight">
             {typedRole}
@@ -71,7 +71,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.7 }}
-          className="text-base md:text-lg text-slate-400 mb-14 max-w-2xl mx-auto leading-relaxed font-medium"
+          className="text-sm md:text-base text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
         >
           ML Data Specialist · Full Stack Developer · Game Programmer — building production-grade software from Hubli, Karnataka.
         </motion.p>
@@ -81,17 +81,17 @@ const Hero = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.7 }}
-          className="flex flex-wrap items-center justify-center gap-6 mb-24"
+          className="flex flex-wrap items-center justify-center gap-4 mb-16"
         >
           <Magnetic>
             <a href="mailto:sameersangam66@gmail.com"
-              className="px-10 py-4 bg-gradient-to-r from-orange-500 via-purple-600 to-blue-600 hover:scale-105 text-white text-sm font-bold rounded-full transition-all shadow-2xl shadow-purple-500/20 tracking-wide uppercase">
+              className="px-8 py-3.5 bg-gradient-to-r from-orange-500 via-purple-600 to-blue-600 hover:scale-105 text-white text-xs font-bold rounded-full transition-all shadow-2xl shadow-purple-500/20 tracking-wide uppercase">
               Get In Touch
             </a>
           </Magnetic>
           <Magnetic>
             <a href="#projects"
-              className="px-10 py-4 border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-white text-sm font-bold rounded-full transition-all tracking-wide uppercase">
+              className="px-8 py-3.5 border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-bold rounded-full transition-all tracking-wide uppercase">
               View Work
             </a>
           </Magnetic>
@@ -102,7 +102,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 0.9 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/5 pt-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/5 pt-12"
         >
           {stats.map((stat, i) => (
             <div key={i} className="text-center group cursor-default">
