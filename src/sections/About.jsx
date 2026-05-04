@@ -48,7 +48,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-orange-400 text-xs font-black uppercase tracking-[0.2em] mb-4"
+              className="text-blue-400 text-xs font-black uppercase tracking-[0.2em] mb-4"
             >
               About Me
             </motion.p>
@@ -63,7 +63,7 @@ const About = () => {
                 I'm <span className="text-white/80 font-semibold">Sameer Sangam</span> — a data annotation specialist and full stack developer based in Karnataka, India. With a track record of delivering meticulous, high-quality annotations across diverse ML datasets (text, images, audio, and video), I've contributed to world-class AI platforms at <span className="text-orange-400 font-medium">iMerit Technology</span>.
               </p>
               <p>
-                As a Team Coordinator at iMerit, I led production delivery for <span className="text-white/70 font-medium">50+ projects globally</span> on the UVeye AI vehicle inspection platform, working across three systems — Atlas, Artemis, and Helios. Our platform won the <span className="text-orange-400 font-medium">Best AI Application of the Year</span> award.
+                As a Team Coordinator at iMerit, I led production delivery for <span className="text-white/70 font-medium">50+ projects globally</span> on the UVeye AI vehicle inspection platform, working across three systems — Atlas, Artemis, and Helios. Our platform won the <span className="text-blue-400 font-medium">Best AI Application of the Year</span> award.
               </p>
               <p>
                 On the development side, I build full stack web applications with React, Flask, and MySQL — including a complete boutique e-commerce platform with OAuth, delivery tracking, and CI/CD pipelines. Currently pursuing my <span className="text-white/70 font-medium">MCA at Chetan Business School, Hubballi</span>.
@@ -79,9 +79,9 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="border border-white/6 rounded-xl p-4 hover:border-orange-500/25 hover:bg-orange-500/3 transition-all duration-300 group"
+                  className="border border-white/6 rounded-xl p-4 hover:border-blue-500/25 hover:bg-blue-500/3 transition-all duration-300 group"
                 >
-                  <p className="text-[10px] text-orange-400 font-black uppercase tracking-widest mb-1.5">{item.label}</p>
+                  <p className="text-[10px] text-blue-400 font-black uppercase tracking-widest mb-1.5">{item.label}</p>
                   <p className="text-sm text-white/70 font-medium group-hover:text-white transition-colors break-all">{item.value}</p>
                 </motion.div>
               ))}

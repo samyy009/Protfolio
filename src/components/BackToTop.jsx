@@ -32,7 +32,7 @@ const BackToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           onClick={scrollToTop}
-          className="fixed bottom-10 right-10 z-[9999] w-14 h-14 bg-orange-500 text-black rounded-full shadow-2xl shadow-orange-500/30 flex items-center justify-center hover:bg-orange-400 hover:scale-110 transition-all group"
+          className="fixed bottom-10 right-10 z-[9999] w-14 h-14 bg-gradient-to-br from-orange-500 to-blue-600 text-white rounded-full shadow-2xl shadow-blue-500/20 flex items-center justify-center hover:scale-110 transition-all group"
           aria-label="Back to top"
         >
           <svg className="w-6 h-6 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
