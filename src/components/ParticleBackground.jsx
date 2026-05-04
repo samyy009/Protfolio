@@ -15,14 +15,15 @@ const ParticleBackground = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Orange floating particles
-    const particles = Array.from({ length: 75 }, () => ({
+    // Mixed orange and blue particles
+    const particles = Array.from({ length: 80 }, (_, i) => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       r: Math.random() * 1.8 + 0.4,
       vx: (Math.random() - 0.5) * 0.25,
       vy: (Math.random() - 0.5) * 0.25,
       opacity: Math.random() * 0.45 + 0.15,
+      color: i % 2 === 0 ? '249,115,22' : '59,130,246' // orange vs blue
     }));
 
     const draw = () => {
@@ -31,8 +32,8 @@ const ParticleBackground = () => {
       particles.forEach((p) => {
         // Outer glow
         const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
-        grd.addColorStop(0, `rgba(249,115,22,${p.opacity})`);
-        grd.addColorStop(1, 'rgba(249,115,22,0)');
+        grd.addColorStop(0, `rgba(${p.color},${p.opacity})`);
+        grd.addColorStop(1, `rgba(${p.color},0)`);
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2);
         ctx.fillStyle = grd;
@@ -41,7 +42,7 @@ const ParticleBackground = () => {
         // Solid core dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(251,146,60,${p.opacity + 0.2})`;
+        ctx.fillStyle = `rgba(${p.color},${p.opacity + 0.2})`;
         ctx.fill();
 
         p.x += p.vx;
@@ -60,7 +61,8 @@ const ParticleBackground = () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(249,115,22,${0.06 * (1 - dist / 130)})`;
+            const color = particles[i].color;
+            ctx.strokeStyle = `rgba(${color},${0.06 * (1 - dist / 130)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

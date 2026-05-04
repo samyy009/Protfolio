@@ -27,8 +27,8 @@ const MatrixLoader = ({ onComplete }) => {
 
       drops.forEach((y, i) => {
         const char = CHARS[Math.floor(Math.random() * CHARS.length)];
-        // Alternate between bright orange and dim orange for depth
-        ctx.fillStyle = i % 3 === 0 ? '#fb923c' : 'rgba(249,115,22,0.4)';
+        // Mixed orange and blue rain
+        ctx.fillStyle = i % 3 === 0 ? '#3b82f6' : '#f97316';
         ctx.fillText(char, i * fontSize, y * fontSize);
 
         if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
@@ -69,9 +69,9 @@ const MatrixLoader = ({ onComplete }) => {
               fontSize: 'clamp(80px, 15vw, 150px)',
               fontWeight: 900,
               letterSpacing: '0.05em',
-              color: '#fff',
-              WebkitTextStroke: '2px #f97316',
-              textShadow: '0 0 40px rgba(249,115,22,0.7), 0 0 100px rgba(249,115,22,0.3)',
+              color: 'transparent',
+              WebkitTextStroke: '2px #fff',
+              textShadow: '0 0 40px rgba(249,115,22,0.6), 0 0 40px rgba(59,130,246,0.6)',
               animation: 'fadeInScale 0.5s ease-out forwards',
             }}
           >
