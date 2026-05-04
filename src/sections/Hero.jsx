@@ -11,92 +11,98 @@ const Hero = () => {
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, 80]);
 
   return (
-    <section ref={targetRef} id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-12 overflow-hidden">
-      <motion.div 
-        style={{ opacity, scale, y }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
+    <section ref={targetRef} id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-16 overflow-hidden">
+      <motion.div
+        style={{ opacity, y }}
+        className="max-w-5xl mx-auto px-6 text-center relative z-10"
       >
+        {/* Profile picture with glow ring */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "backOut" }}
-          className="relative inline-block mb-8"
+          className="relative inline-block mb-10"
         >
-          <div className="absolute inset-0 bg-teal-500 blur-3xl opacity-20 rounded-full animate-pulse"></div>
-          <img 
-            src="/assets/profile.png" 
-            alt="Sameer Sangam" 
-            className="relative w-32 h-32 md:w-48 md:h-48 rounded-full border-2 border-teal-500/50 object-cover shadow-2xl"
+          <div className="absolute inset-0 rounded-full bg-green-500/20 blur-2xl animate-pulse" />
+          <img
+            src="/assets/profile.png"
+            alt="Sameer Sangam"
+            className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-green-500/50 object-cover shadow-2xl shadow-green-500/20"
             onError={(e) => {
-              e.target.src = 'https://ui-avatars.com/api/?name=Sameer+Sangam&background=0D8ABC&color=fff&size=256';
+              e.target.src = 'https://ui-avatars.com/api/?name=Sameer+Sangam&background=001a00&color=00ff41&size=256&bold=true';
             }}
           />
         </motion.div>
 
-        <TextReveal 
-          text="Sameer Sangam" 
-          className="text-5xl md:text-8xl font-extrabold mb-6 tracking-tight text-white leading-tight justify-center" 
+        {/* Name with word-by-word reveal */}
+        <TextReveal
+          text="Sameer Sangam"
+          className="text-5xl md:text-8xl font-black text-white leading-none mb-6 justify-center"
         />
 
-        <motion.p 
+        {/* Role */}
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-xl md:text-3xl text-slate-400 mb-6 max-w-3xl mx-auto font-medium"
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="text-lg md:text-xl text-white/50 mb-4 font-medium tracking-wide"
         >
-          Full Stack Web Developer
+          Full Stack Developer
         </motion.p>
 
-        <motion.p 
+        {/* Tagline */}
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="text-lg text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed"
+          transition={{ duration: 0.8, delay: 1.1 }}
+          className="text-base text-white/40 mb-14 max-w-2xl mx-auto leading-relaxed"
         >
-          Crafting high-performance web applications and boutique e-commerce experiences with React, Flask, and modern tech stacks.
+          Building high-performance web applications and boutique e-commerce experiences with React, Flask, and modern tech stacks.
         </motion.p>
 
-        <motion.div 
+        {/* CTA buttons */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="flex flex-wrap justify-center gap-6 mb-20"
+          transition={{ duration: 0.8, delay: 1.3 }}
+          className="flex flex-wrap justify-center gap-5 mb-24"
         >
-          <a href="#projects" className="px-10 py-4 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-teal-500/30">
-            View My Work
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
+            className="px-8 py-3.5 bg-green-500 hover:bg-green-400 text-black font-black rounded-full transition-all transform hover:scale-105 shadow-xl shadow-green-500/30 text-sm tracking-wide">
+            Download CV
           </a>
-          <a href="#contact" className="px-10 py-4 bg-slate-900/50 hover:bg-slate-800 border border-slate-800 text-white font-bold rounded-2xl transition-all transform hover:scale-105 backdrop-blur-sm">
+          <a href="#contact"
+            className="px-8 py-3.5 border border-white/15 hover:border-green-500/50 hover:bg-green-500/5 text-white font-bold rounded-full transition-all text-sm tracking-wide">
             Contact Me
           </a>
         </motion.div>
 
-        <motion.div 
+        {/* Stats row */}
+        <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.4 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-4xl mx-auto py-16 border-t border-white/5"
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-10 border-t border-white/5 pt-12"
         >
           {stats.map((stat, index) => (
             <div key={index} className="text-center group">
-              <div className="text-4xl md:text-5xl font-black text-teal-400 mb-2 group-hover:scale-110 transition-transform">{stat.value}</div>
-              <div className="text-xs text-slate-500 uppercase tracking-[0.2em] font-bold">{stat.label}</div>
+              <div className="text-4xl md:text-5xl font-black text-green-400 mb-2 group-hover:scale-110 transition-transform">
+                {stat.value}
+              </div>
+              <div className="text-[11px] text-white/30 uppercase tracking-[0.2em] font-bold">
+                {stat.label}
+              </div>
             </div>
           ))}
         </motion.div>
       </motion.div>
 
-      <motion.div 
-        style={{ y: useTransform(scrollYProgress, [0, 1], [0, -200]) }}
-        className="absolute top-1/4 -left-20 w-64 h-64 bg-teal-500/10 blur-[120px] rounded-full z-0"
-      />
-      <motion.div 
-        style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
-        className="absolute bottom-1/4 -right-20 w-80 h-80 bg-blue-500/10 blur-[120px] rounded-full z-0"
-      />
+      {/* Background orbs */}
+      <div className="absolute top-1/3 -left-40 w-80 h-80 bg-green-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/3 -right-40 w-96 h-96 bg-green-500/5 blur-[150px] rounded-full pointer-events-none" />
     </section>
   );
 };

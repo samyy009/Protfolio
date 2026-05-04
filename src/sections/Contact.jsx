@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import TextReveal from '../components/TextReveal';
 
 const Contact = () => {
   const [formState, setFormState] = useState('idle');
@@ -11,77 +12,113 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-900/50">
+    <section id="contact" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+
+          {/* Left */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h4 className="text-teal-400 text-sm font-bold uppercase tracking-widest mb-2">Get in touch</h4>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
-              Have a project in mind? <span className="text-teal-400 italic">Let's build</span> it.
-            </h2>
-            <p className="text-lg text-slate-400 mb-12 max-w-lg">
-              I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+            <p className="text-green-400 text-sm font-bold uppercase tracking-widest mb-4">Get in touch</p>
+            <TextReveal
+              text="Have a project in mind? Let's build it."
+              className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight"
+            />
+            <p className="text-white/40 mb-14 leading-relaxed">
+              I typically respond within 24 hours. Whether you have a question or just want to say hi, I'll try my best to get back to you!
             </p>
-            
-            <div className="space-y-8">
-              <div className="flex items-center gap-6 group">
-                <div className="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center group-hover:bg-teal-500 transition-colors">
-                  <svg className="w-6 h-6 text-teal-400 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+
+            <div className="space-y-6">
+              <div className="flex items-center gap-5 group">
+                <div className="w-12 h-12 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-green-500/50 group-hover:bg-green-500/5 transition-all">
+                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
                 </div>
                 <div>
-                  <div className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-1">Email Me</div>
-                  <a href="mailto:sameersangam@example.com" className="text-xl font-bold text-white hover:text-teal-400 transition-colors">sameersangam@example.com</a>
+                  <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest mb-0.5">Email</p>
+                  <a href="mailto:sameer@example.com" className="text-white font-bold hover:text-green-400 transition-colors">
+                    sameer@example.com
+                  </a>
                 </div>
               </div>
-              <div className="flex items-center gap-6 group">
-                <div className="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center group-hover:bg-teal-500 transition-colors">
-                  <svg className="w-6 h-6 text-teal-400 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+
+              <div className="flex items-center gap-5 group">
+                <div className="w-12 h-12 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-green-500/50 group-hover:bg-green-500/5 transition-all">
+                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
                 </div>
                 <div>
-                  <div className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-1">Based in</div>
-                  <div className="text-xl font-bold text-white">Hyderabad, India</div>
+                  <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest mb-0.5">Location</p>
+                  <p className="text-white font-bold">Hyderabad, India</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-5 group">
+                <div className="w-12 h-12 border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-green-500/50 group-hover:bg-green-500/5 transition-all">
+                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[11px] text-white/30 font-bold uppercase tracking-widest mb-0.5">GitHub</p>
+                  <a href="https://github.com/samyy009" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-green-400 transition-colors">
+                    github.com/samyy009
+                  </a>
                 </div>
               </div>
             </div>
           </motion.div>
 
+          {/* Right: Form */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="glass-card p-10 md:p-12 rounded-[40px] border border-slate-800/50"
+            className="border border-white/8 rounded-3xl p-10"
           >
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Your Name</label>
-                  <input required type="text" className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="Sameer Sangam" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Email Address</label>
-                  <input required type="email" className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-teal-500 transition-colors" placeholder="hello@example.com" />
-                </div>
+            <h3 className="text-xl font-bold text-white mb-8">Send Me a Message</h3>
+            <form className="space-y-5" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {['Your Name', 'Email Address'].map((label, i) => (
+                  <div key={i}>
+                    <label className="block text-[11px] font-bold text-white/30 uppercase tracking-widest mb-2">{label}</label>
+                    <input
+                      required
+                      type={i === 1 ? 'email' : 'text'}
+                      placeholder={i === 0 ? 'Sameer Sangam' : 'hello@example.com'}
+                      className="w-full bg-white/3 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/20 focus:outline-none focus:border-green-500/50 transition-colors"
+                    />
+                  </div>
+                ))}
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Your Message</label>
-                <textarea required rows="5" className="w-full bg-slate-900/50 border border-slate-800 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-teal-500 transition-colors resize-none" placeholder="Tell me about your project..."></textarea>
+              <div>
+                <label className="block text-[11px] font-bold text-white/30 uppercase tracking-widest mb-2">Message</label>
+                <textarea
+                  required
+                  rows="5"
+                  placeholder="Tell me about your project..."
+                  className="w-full bg-white/3 border border-white/8 rounded-xl px-5 py-4 text-white text-sm placeholder-white/20 focus:outline-none focus:border-green-500/50 transition-colors resize-none"
+                />
               </div>
-              <button 
+              <button
                 disabled={formState !== 'idle'}
-                className="w-full bg-teal-500 hover:bg-teal-400 disabled:bg-slate-700 text-slate-900 font-bold py-5 rounded-2xl transition-all transform active:scale-95 shadow-xl shadow-teal-500/20 flex items-center justify-center gap-2"
+                className="w-full py-4 bg-green-500 hover:bg-green-400 disabled:bg-white/10 text-black font-black rounded-xl transition-all shadow-lg shadow-green-500/20 text-sm tracking-wide"
               >
                 {formState === 'idle' && 'Send Message'}
                 {formState === 'submitting' && 'Sending...'}
-                {formState === 'success' && 'Message Sent!'}
+                {formState === 'success' && '✓ Message Sent!'}
               </button>
             </form>
           </motion.div>
+
         </div>
       </div>
     </section>

@@ -1,14 +1,19 @@
+import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
 import { projects } from '../data/projects';
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-slate-900/50">
+    <section id="projects" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          Featured <span className="text-teal-400">Projects</span>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Section header — exact match to reference */}
+        <div className="mb-8">
+          <p className="text-green-400 text-sm font-bold uppercase tracking-widest mb-2">Portfolio</p>
+          <h2 className="text-5xl md:text-7xl font-black text-white">Latest Projects</h2>
+        </div>
+
+        {/* Projects listed vertically, each separated by a line */}
+        <div>
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}

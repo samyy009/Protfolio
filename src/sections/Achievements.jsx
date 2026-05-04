@@ -1,47 +1,109 @@
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import TextReveal from '../components/TextReveal';
+
+const achievementsList = [
+  {
+    title: "Full Stack Developer",
+    subtitle: "Laces and Soles Boutique",
+    description: "Lead developer of a production e-commerce platform with Flask, React, and MySQL. Implemented Facebook OAuth, real-time delivery tracking, and a mobile-optimized experience.",
+  },
+  {
+    title: "Web App Architecture",
+    subtitle: "Portfolio Application",
+    description: "Designed and built a high-performance portfolio with React, Tailwind CSS v4, Framer Motion, Lenis smooth scroll, and a canvas-based Matrix loader and particle system.",
+  },
+  {
+    title: "Open Source Contributor",
+    subtitle: "GitHub",
+    description: "Active contributor to web development projects on GitHub. Maintaining clean codebases following SOLID principles and modern React patterns.",
+  },
+  {
+    title: "Full Stack Certification",
+    subtitle: "Certified Developer",
+    description: "Comprehensive certification covering React, Node.js, database design, REST APIs, and deployment workflows.",
+  },
+  {
+    title: "Database Design",
+    subtitle: "SQL Specialist",
+    description: "Advanced certification in relational database design and optimization techniques using MySQL and PostgreSQL.",
+  },
+];
+
 const Achievements = () => {
-  const categories = [
-    {
-      title: "Certificates",
-      items: [
-        { name: "Full Stack Web Development", role: "Certified", description: "Comprehensive certification covering React, Node.js, and database management." },
-        { name: "Database Design & SQL", role: "Specialist", description: "Advanced certification in relational database design and SQL optimization." },
-        { name: "Python for Data Science", role: "Certified", description: "Certification in Python programming with a focus on data manipulation and analysis." }
-      ]
-    },
-    {
-      title: "Projects & Impact",
-      items: [
-        { name: "Laces and Soles Launch", role: "Lead Developer", description: "Successfully developed and optimized a premium shoe boutique application." },
-        { name: "Open Source Contributions", role: "Contributor", description: "Active contributor to various web development tools and libraries on GitHub." },
-        { name: "Innovation Challenge", role: "Finalist", description: "Recognized for building a high-performance delivery tracking system." }
-      ]
-    }
-  ];
+  const [active, setActive] = useState(0);
+
+  const prev = () => setActive((p) => (p - 1 + achievementsList.length) % achievementsList.length);
+  const next = () => setActive((p) => (p + 1) % achievementsList.length);
 
   return (
-    <section id="achievements" className="py-24 bg-slate-900/50">
+    <section id="achievements" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Achievements & <span className="text-teal-400">Impact</span></h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">A showcase of certifications and key technical milestones achieved in my journey.</p>
+
+        {/* Header with nav arrows — matching reference */}
+        <div className="flex items-end justify-between mb-16">
+          <div>
+            <p className="text-green-400 text-sm font-bold uppercase tracking-widest mb-2">Achievements</p>
+            <TextReveal
+              text="Milestones in My Journey"
+              className="text-4xl md:text-6xl font-black text-white"
+            />
+          </div>
+
+          {/* Arrow navigation — exact match */}
+          <div className="flex gap-3 flex-shrink-0">
+            <button
+              onClick={prev}
+              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-green-400 hover:text-green-400 transition-all"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={next}
+              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:border-green-400 hover:text-green-400 transition-all"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {categories.map((cat, idx) => (
-            <div key={idx} className="space-y-6">
-              <h3 className="text-xl font-bold text-white border-l-4 border-teal-500 pl-4">{cat.title}</h3>
-              <div className="space-y-4">
-                {cat.items.map((item, i) => (
-                  <div key={i} className="glass-card p-6 rounded-xl hover:bg-slate-800/40 transition-colors border border-slate-800/50">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-bold text-white group-hover:text-teal-400 transition-colors">{item.name}</h4>
-                      <span className="text-[10px] bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded font-bold uppercase">{item.role}</span>
-                    </div>
-                    <p className="text-sm text-slate-400 leading-relaxed">{item.description}</p>
-                  </div>
-                ))}
+        {/* Achievement cards — horizontal carousel */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {achievementsList.slice(active, active + 3).concat(
+            achievementsList.slice(0, Math.max(0, (active + 3) - achievementsList.length))
+          ).map((item, i) => (
+            <motion.div
+              key={active + i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="border border-white/8 rounded-2xl p-8 hover:border-green-500/30 hover:bg-green-500/3 transition-all group"
+            >
+              <div className="mb-4">
+                <span className="text-xs font-bold text-green-400 uppercase tracking-widest">{item.subtitle}</span>
               </div>
-            </div>
+              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors">
+                {item.title}
+              </h3>
+              <p className="text-sm text-white/40 leading-relaxed">{item.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Dots indicator */}
+        <div className="flex justify-center gap-2 mt-10">
+          {achievementsList.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                i === active ? 'bg-green-400 w-6' : 'bg-white/20 hover:bg-white/40'
+              }`}
+            />
           ))}
         </div>
       </div>

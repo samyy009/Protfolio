@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Modal from './Modal';
 
 const ProjectCard = ({ project }) => {
@@ -6,97 +7,150 @@ const ProjectCard = ({ project }) => {
 
   return (
     <>
-      <div 
-        onClick={() => setIsModalOpen(true)}
-        className="glass-card rounded-2xl overflow-hidden hover:-translate-y-2 transition-all duration-300 group flex flex-col h-full border border-slate-800 hover:border-teal-500/30 cursor-pointer"
-      >
-        <div className="relative h-56 w-full overflow-hidden bg-slate-800">
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90 group-hover:opacity-100"
-            onError={(e) => {
-              e.target.src = `https://placehold.co/600x400/0f172a/94a3b8?text=${project.title}`;
-            }}
-          />
-          <div className="absolute top-4 right-4 flex gap-2">
-            {project.tech.slice(0, 2).map((t, i) => (
-              <span key={i} className="px-2 py-1 bg-slate-900/80 backdrop-blur-sm text-teal-400 text-[10px] uppercase tracking-widest font-bold rounded">
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="p-8 flex-1 flex flex-col">
-          <div className="mb-4">
-            <h4 className="text-teal-400 text-xs font-bold uppercase tracking-widest mb-1">{project.tagline}</h4>
-            <h3 className="text-2xl font-bold text-white group-hover:text-teal-400 transition-colors">{project.title}</h3>
-          </div>
-          <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">
-            {project.description}
-          </p>
-          <div className="flex items-center justify-between pt-6 border-t border-slate-800 mt-auto">
-            <span className="text-xs font-bold text-teal-500 uppercase tracking-widest group-hover:translate-x-2 transition-transform">
-              View Project →
-            </span>
-            <div className="flex gap-2">
+      <div className="py-16 md:py-24 border-b border-white/5 last:border-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          
+          {/* Left: Text Content */}
+          <div>
+            {/* Bracket title like < ProjectName > */}
+            <motion.h3
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-5xl font-bold text-white mb-3 flex items-center gap-3"
+            >
+              <span className="text-green-400 font-light">{'<'}</span>
+              {project.title}
+              <span className="text-green-400 font-light">{'>'}</span>
+            </motion.h3>
+
+            {/* Italic green tagline */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-green-400 italic text-lg font-semibold mb-6"
+            >
+              {project.tagline}
+            </motion.p>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="text-gray-400 leading-relaxed mb-8 text-base"
+            >
+              {project.description}
+            </motion.p>
+
+            {/* Key Features with + prefix */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="mb-8"
+            >
+              <p className="text-white font-bold mb-4">Key Features:</p>
+              <ul className="space-y-2">
+                {project.features.map((f, i) => (
+                  <li key={i} className="flex items-start text-gray-400 text-sm">
+                    <span className="text-green-400 mr-3 font-bold">+</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Tech pills */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="flex flex-wrap gap-2 mb-10"
+            >
               {project.tech.map((t, i) => (
-                <div key={i} title={t} className="w-2 h-2 rounded-full bg-slate-700"></div>
+                <span
+                  key={i}
+                  className="px-4 py-1.5 text-xs font-bold border border-green-500/40 text-green-400 rounded-full hover:bg-green-500/10 transition-colors"
+                >
+                  {t}
+                </span>
               ))}
-            </div>
+            </motion.div>
+
+            {/* Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="flex gap-4"
+            >
+              <a
+                href={project.github}
+                className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-full border border-white/10 transition-all"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+              <a
+                href={project.demo}
+                className="flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-400 text-black font-bold rounded-full transition-all shadow-lg shadow-green-500/30"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+                Live Demo
+              </a>
+            </motion.div>
           </div>
+
+          {/* Right: Project Image / Screenshot */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="relative group cursor-pointer"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 group-hover:border-green-500/40 transition-colors shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent z-10 group-hover:from-green-500/10 transition-all" />
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                onError={(e) => {
+                  e.target.src = `https://placehold.co/800x500/0a0a0a/00ff41?text=${project.title}`;
+                }}
+              />
+            </div>
+            {/* Glow effect */}
+            <div className="absolute -inset-2 bg-green-500/10 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+          </motion.div>
         </div>
       </div>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <div className="flex flex-col md:flex-row h-full">
-          <div className="w-full md:w-1/2 h-64 md:h-auto bg-slate-800">
-            <img 
-              src={project.image} 
-              alt={project.title} 
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.target.src = `https://placehold.co/800x800/0f172a/94a3b8?text=${project.title}`;
-              }}
-            />
-          </div>
-          <div className="w-full md:w-1/2 p-10 md:p-12">
-            <h4 className="text-teal-400 text-sm font-bold uppercase tracking-widest mb-2">{project.tagline}</h4>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{project.title}</h2>
-            <p className="text-slate-400 leading-relaxed mb-8">
-              {project.description}
-            </p>
-            <div className="space-y-6">
-              <div>
-                <h5 className="text-white font-bold mb-3 uppercase text-xs tracking-widest opacity-50">Key Features</h5>
-                <ul className="grid grid-cols-1 gap-2">
-                  {project.features.map((feature, i) => (
-                    <li key={i} className="flex items-start text-sm text-slate-300">
-                      <span className="text-teal-500 mr-3">+</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h5 className="text-white font-bold mb-3 uppercase text-xs tracking-widest opacity-50">Technologies Used</h5>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t, i) => (
-                    <span key={i} className="px-3 py-1 bg-slate-800 text-teal-400 text-xs font-medium rounded-lg border border-slate-700">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="flex gap-4 pt-8">
-                <a href={project.github} className="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 rounded-2xl text-center transition-colors">
-                  View Source
-                </a>
-                <a href={project.demo} className="flex-1 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold py-4 rounded-2xl text-center transition-colors shadow-lg shadow-teal-500/20">
-                  Live Demo
-                </a>
-              </div>
-            </div>
+        <div className="p-10">
+          <h2 className="text-3xl font-bold text-white mb-2 flex items-center gap-2">
+            <span className="text-green-400">{'<'}</span>{project.title}<span className="text-green-400">{'>'}</span>
+          </h2>
+          <p className="text-green-400 italic mb-6">{project.tagline}</p>
+          <img src={project.image} alt={project.title} className="w-full rounded-xl mb-6" onError={(e) => { e.target.src = `https://placehold.co/800x400/0a0a0a/00ff41?text=${project.title}`; }} />
+          <p className="text-gray-400 mb-6">{project.description}</p>
+          <div className="flex flex-wrap gap-2">
+            {project.tech.map((t, i) => (
+              <span key={i} className="px-3 py-1 text-xs font-bold border border-green-500/40 text-green-400 rounded-full">{t}</span>
+            ))}
           </div>
         </div>
       </Modal>
