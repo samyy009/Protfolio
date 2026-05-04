@@ -37,8 +37,8 @@ function App() {
           >
             <SmoothScroll>
               <div
-                className="min-h-screen text-white font-sans cursor-none overflow-x-hidden"
-                style={{ background: '#000', fontFamily: "'Inter', system-ui, sans-serif" }}
+                className="min-h-screen text-white font-sans cursor-none overflow-x-hidden mesh-gradient"
+                style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
               >
                 {/* Global overlays */}
                 <CustomCursor />
