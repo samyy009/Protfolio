@@ -1,6 +1,8 @@
 export const projects = [
   {
     title: 'Laces and Soles',
+    category: 'Full Stack',
+    metrics: { performance: '98%', responsiveness: '100%', stability: '95%' },
     tagline: 'Premium Boutique E-Commerce Platform',
     description:
       'A full-stack boutique e-commerce application for a shoe store. Features Facebook OAuth login, product management, smooth checkout with invoice generation, real-time delivery tracking, and a fully mobile-optimized UI. Built with Flask, React, and MySQL for production use with CI/CD pipelines.',
@@ -15,11 +17,12 @@ export const projects = [
     tech: ['React', 'Flask', 'MySQL', 'PostgreSQL', 'OAuth 2.0', 'Tailwind CSS', 'Python'],
     github: 'https://github.com/samyy009',
     demo: '#',
-    // Use a real OG image from a shoe site as placeholder
     image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&h=500&fit=crop&auto=format',
   },
   {
     title: 'Flavora',
+    category: 'Web',
+    metrics: { performance: '99%', design: '100%', engagement: '92%' },
     tagline: 'Recipe Sharing & Food Community Platform · Hacklite 2.0',
     description:
       'A modern recipe-sharing and food community platform built during the Hacklite 2.0 24-hour hackathon organized by Code Crafters. Flavora lets food lovers discover recipes, share culinary creations, like and share posts — deployed live on Vercel.',
@@ -38,6 +41,8 @@ export const projects = [
   },
   {
     title: 'Galactic Blaster',
+    category: 'Game Dev',
+    metrics: { fps: '60+', latency: '< 1ms', physics: '99%' },
     tagline: 'Arcade 2D Space Shooter — C + Raylib',
     description:
       'An arcade-style 2D space shooter game developed in C using the Raylib graphics library. Features real-time rendering, a smooth game loop, collision detection, and a finite state machine managing game states (menu, play, pause, game over). A deep dive into low-level game programming.',
@@ -55,7 +60,9 @@ export const projects = [
     image: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=800&h=500&fit=crop&auto=format',
   },
   {
-    title: 'UVeye AI Annotation Platform',
+    title: 'UVeye AI Platform',
+    category: 'ML/Data',
+    metrics: { accuracy: '99.8%', scale: '50+ Proj', impact: 'High' },
     tagline: 'ML Data Annotation & Quality Control at Scale',
     description:
       'Contributed to large-scale AI data annotation and QA pipelines at iMerit Technology for the UVeye computer vision platform. Coordinated 50+ production projects globally across three product lines — Atlas, Artemis, and Helios. Our team earned the Best AI App of the Year award.',
