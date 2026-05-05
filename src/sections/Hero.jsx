@@ -23,6 +23,8 @@ const Hero = () => {
   const typedRole = useTypewriter(ROLES, 80, 50, 2200);
 
   return (
+    <section ref={ref} id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
+      <FloatingIcons />
       {/* Blueprint Grid Background */}
       <div className="absolute inset-0 z-0 opacity-[0.15] pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #f97316 1px, transparent 0)', backgroundSize: '40px 40px' }} />
