@@ -23,7 +23,21 @@ import Magnetic from './components/Magnetic';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState('dark');
   const handleLoaded = useCallback(() => setLoading(false), []);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('theme') || 'dark';
+    setTheme(saved);
+    document.documentElement.setAttribute('data-theme', saved);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  };
 
   return (
     <>
@@ -31,25 +45,27 @@ function App() {
         {loading && <MatrixLoader onComplete={handleLoaded} />}
       </AnimatePresence>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {!loading && (
           <motion.div
-            initial={{ opacity: 0 }}
+            key={theme}
+            initial={{ opacity: 0.8 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
           >
             <SmoothScroll>
               <div
-                className="min-h-screen text-white font-sans cursor-none overflow-x-hidden mesh-gradient"
+                className="min-h-screen text-white font-sans cursor-none overflow-x-hidden mesh-gradient transition-colors duration-700"
                 style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
               >
                 {/* Global overlays */}
+                <div className="fixed inset-0 noise-overlay z-[1] opacity-[0.03]" />
                 <CustomCursor />
                 <ThreeBackground />
                 <SpotlightBackground />
                 <ScrollProgress />
 
-                <Navbar />
+                <Navbar toggleTheme={toggleTheme} theme={theme} />
 
                 <main className="relative z-10">
                   <Hero />

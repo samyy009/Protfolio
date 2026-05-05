@@ -1,5 +1,40 @@
 @import "tailwindcss";
 
+:root {
+  --bg-color: #020203;
+  --text-color: #e2e8f0;
+  --text-muted: rgba(226, 232, 240, 0.4);
+  --accent-color: #f97316;
+  --grid-color: rgba(59, 130, 246, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] {
+  --bg-color: #f8fafc;
+  --text-color: #0f172a;
+  --text-muted: rgba(15, 23, 42, 0.6);
+  --accent-color: #ea580c;
+  --grid-color: rgba(15, 23, 42, 0.05);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(15, 23, 42, 0.1);
+}
+
+/* Theme Visibility Overrides */
+[data-theme='light'] .text-white { color: #0f172a !important; }
+[data-theme='light'] .text-white\/90 { color: rgba(15, 23, 42, 0.9) !important; }
+[data-theme='light'] .text-white\/80 { color: rgba(15, 23, 42, 0.8) !important; }
+[data-theme='light'] .text-white\/70 { color: rgba(15, 23, 42, 0.7) !important; }
+[data-theme='light'] .text-white\/60 { color: rgba(15, 23, 42, 0.6) !important; }
+[data-theme='light'] .text-white\/40 { color: rgba(15, 23, 42, 0.5) !important; }
+[data-theme='light'] .text-white\/20 { color: rgba(15, 23, 42, 0.25) !important; }
+[data-theme='light'] .text-slate-400 { color: #475569 !important; }
+[data-theme='light'] .text-slate-500 { color: #334155 !important; }
+[data-theme='light'] .bg-white\/5 { background-color: rgba(15, 23, 42, 0.05) !important; }
+[data-theme='light'] .bg-white\/10 { background-color: rgba(15, 23, 42, 0.1) !important; }
+[data-theme='light'] .border-white\/5, [data-theme='light'] .border-white\/8, [data-theme='light'] .border-white\/10 { border-color: rgba(15, 23, 42, 0.1) !important; }
+[data-theme='light'] .bg-black\/70 { background-color: rgba(255, 255, 255, 0.9) !important; }
+
 @layer base {
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -13,11 +48,12 @@
   }
 
   body {
-    background: #020203;
-    color: #e2e8f0;
+    background: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
 
   ::selection {
@@ -27,9 +63,9 @@
 
   /* Custom Scrollbar — Sunset Gradient */
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: #020203; }
+  ::-webkit-scrollbar-track { background: var(--bg-color); }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #f97316, #8b5cf6, #3b82f6);
+    background: linear-gradient(to bottom, var(--accent-color), #8b5cf6, #3b82f6);
     border-radius: 10px;
   }
 }
