@@ -26,6 +26,24 @@ const Hero = () => {
     <section ref={ref} id="hero" className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
       <FloatingIcons />
       <motion.div style={{ opacity, y }} className="relative z-10 max-w-5xl mx-auto px-6 text-center w-full">
+        
+        {/* Real-World Status Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex justify-center mb-8"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md group hover:border-orange-500/40 transition-all duration-500 cursor-default">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span className="text-[9px] font-black tracking-[0.3em] uppercase text-white/60 group-hover:text-white transition-colors">
+              Available for new projects
+            </span>
+          </div>
+        </motion.div>
 
         {/* Avatar */}
         <motion.div

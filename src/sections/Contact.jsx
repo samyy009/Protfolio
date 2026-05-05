@@ -76,29 +76,67 @@ const Contact = () => {
             </p>
 
             <div className="space-y-5">
-              {contactInfo.map((item, i) => (
-                <div key={i} className="flex items-center gap-5 group">
-                  <div className={`w-12 h-12 border border-white/8 rounded-2xl flex items-center justify-center group-hover:border-${i % 2 === 0 ? 'orange' : 'blue'}-500/50 group-hover:bg-${i % 2 === 0 ? 'orange' : 'blue'}-500/5 transition-all flex-shrink-0`}>
-                    {/* Re-coloring the icon */}
-                    {Object.assign({}, item.icon, {
-                      props: Object.assign({}, item.icon.props, {
-                        className: item.icon.props.className.replace('text-orange-400', i % 2 === 0 ? 'text-orange-400' : 'text-blue-400')
-                      })
-                    })}
+              {contactInfo.map((item, i) => {
+                const [copied, setCopied] = useState(false);
+                const isEmail = item.label === 'Email';
+
+                const handleCopy = () => {
+                  navigator.clipboard.writeText(item.value);
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                };
+
+                return (
+                  <div key={i} className="flex items-center gap-5 group relative">
+                    <div className={`w-12 h-12 border border-white/8 rounded-2xl flex items-center justify-center group-hover:border-${i % 2 === 0 ? 'orange' : 'blue'}-500/50 group-hover:bg-${i % 2 === 0 ? 'orange' : 'blue'}-500/5 transition-all flex-shrink-0`}>
+                      {/* Re-coloring the icon */}
+                      {Object.assign({}, item.icon, {
+                        props: Object.assign({}, item.icon.props, {
+                          className: item.icon.props.className.replace('text-orange-400', i % 2 === 0 ? 'text-orange-400' : 'text-blue-400')
+                        })
+                      })}
+                    </div>
+                    <div className="flex-grow">
+                      <p className="text-[10px] text-slate-500 font-black uppercase tracking-widest mb-0.5">{item.label}</p>
+                      <div className="flex items-center gap-3">
+                        {item.href ? (
+                          <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
+                            className={`text-white font-bold hover:text-${i % 2 === 0 ? 'orange' : 'blue'}-400 transition-colors text-sm break-all`}>
+                            {item.value}
+                          </a>
+                        ) : (
+                          <p className="text-white font-bold text-sm">{item.value}</p>
+                        )}
+                        
+                        {isEmail && (
+                          <button 
+                            onClick={handleCopy}
+                            className={`p-1.5 rounded-lg border border-white/5 bg-white/2 hover:bg-white/5 transition-all group/copy relative`}
+                            title="Copy email"
+                          >
+                            <AnimatePresence mode="wait">
+                              {copied ? (
+                                <motion.span
+                                  key="check"
+                                  initial={{ scale: 0 }}
+                                  animate={{ scale: 1 }}
+                                  exit={{ scale: 0 }}
+                                  className="text-[8px] text-green-400 font-black absolute -top-8 left-1/2 -translate-x-1/2 bg-black/80 px-2 py-1 rounded whitespace-nowrap"
+                                >
+                                  Copied!
+                                </motion.span>
+                              ) : null}
+                            </AnimatePresence>
+                            <svg className={`w-3.5 h-3.5 ${copied ? 'text-green-400' : 'text-white/30 group-hover/copy:text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 012-2v-8a2 2 0 01-2-2h-8a2 2 0 01-2 2v8a2 2 0 012 2z"/>
+                            </svg>
+                          </button>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[10px] text-slate-500 font-black uppercase tracking-widest mb-0.5">{item.label}</p>
-                    {item.href ? (
-                      <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
-                        className={`text-white font-bold hover:text-${i % 2 === 0 ? 'orange' : 'blue'}-400 transition-colors text-sm break-all`}>
-                        {item.value}
-                      </a>
-                    ) : (
-                      <p className="text-white font-bold text-sm">{item.value}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
 
