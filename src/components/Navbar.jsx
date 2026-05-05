@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import useActiveSection from '../hooks/useActiveSection';
 
-const SECTION_IDS = ['hero', 'about', 'projects', 'experience', 'skills', 'achievements', 'contact'];
+const SECTION_IDS = ['hero', 'about', 'services', 'projects', 'experience', 'skills', 'achievements', 'testimonials', 'contact'];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,9 +18,11 @@ const Navbar = () => {
   const navLinks = [
     { name: 'HOME', href: '#hero', id: 'hero' },
     { name: 'ABOUT', href: '#about', id: 'about' },
+    { name: 'SERVICES', href: '#services', id: 'services' },
     { name: 'PROJECTS', href: '#projects', id: 'projects' },
-    { name: 'EXPERIENCE', href: '#experience', id: 'experience' },
     { name: 'SKILLS', href: '#skills', id: 'skills' },
+    { name: 'AWARDS', href: '#achievements', id: 'achievements' },
+    { name: 'TESTIMONIALS', href: '#testimonials', id: 'testimonials' },
     { name: 'CONTACT', href: '#contact', id: 'contact' },
   ];
 

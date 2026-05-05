@@ -9,6 +9,8 @@ import Projects from './sections/Projects';
 import Experience from './sections/Experience';
 import Achievements from './sections/Achievements';
 import Contact from './sections/Contact';
+import Services from './sections/Services';
+import Testimonials from './sections/Testimonials';
 import CustomCursor from './components/CustomCursor';
 import SpotlightBackground from './components/SpotlightBackground';
 import SectionWrapper from './components/SectionWrapper';
@@ -57,6 +59,10 @@ function App() {
                   </SectionWrapper>
 
                   <SectionWrapper>
+                    <Services />
+                  </SectionWrapper>
+
+                  <SectionWrapper>
                     <Projects />
                   </SectionWrapper>
 
@@ -70,6 +76,10 @@ function App() {
 
                   <SectionWrapper>
                     <Achievements />
+                  </SectionWrapper>
+
+                  <SectionWrapper>
+                    <Testimonials />
                   </SectionWrapper>
 
                   <SectionWrapper>

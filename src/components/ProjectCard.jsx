@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Modal from './Modal';
 import ParallaxImage from './ParallaxImage';
+import Tilt from './Tilt';
 
 const ProjectCard = ({ project }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -115,25 +116,27 @@ const ProjectCard = ({ project }) => {
           </div>
 
           {/* Right: Project Image / Screenshot */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative group cursor-pointer"
-            onClick={() => setIsModalOpen(true)}
-          >
-            <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group-hover:border-orange-500/40 transition-colors shadow-2xl">
-              <ParallaxImage
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent z-10 group-hover:from-orange-500/10 transition-all pointer-events-none" />
-            </div>
-            {/* Glow effect */}
-            <div className="absolute -inset-2 bg-orange-500/10 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
-          </motion.div>
+          <Tilt className="order-1 md:order-2">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative group cursor-pointer"
+              onClick={() => setIsModalOpen(true)}
+            >
+              <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 group-hover:border-orange-500/40 transition-colors shadow-2xl">
+                <ParallaxImage
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent z-10 group-hover:from-orange-500/10 transition-all pointer-events-none" />
+              </div>
+              {/* Glow effect */}
+              <div className="absolute -inset-2 bg-orange-500/10 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+            </motion.div>
+          </Tilt>
         </div>
       </div>
  
