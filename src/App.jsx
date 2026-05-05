@@ -95,10 +95,6 @@ function App() {
                   </SectionWrapper>
 
                   <SectionWrapper>
-                    <Testimonials />
-                  </SectionWrapper>
-
-                  <SectionWrapper>
                     <Contact />
                   </SectionWrapper>
                 </main>
