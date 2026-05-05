@@ -4,61 +4,66 @@ import { experience } from '../data/experience';
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-28">
+    <section id="experience" className="py-28 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-20"
         >
-          <p className="text-blue-400 text-xs font-black uppercase tracking-[0.2em] mb-3">Career</p>
+          <div className="flex items-center gap-4 mb-4">
+            <span className="px-2 py-1 bg-orange-500/10 text-orange-400 text-[10px] font-black uppercase tracking-widest border border-orange-500/20 rounded">LOG_FILE: EXPERIENCE</span>
+            <div className="h-px flex-grow bg-white/5" />
+          </div>
           <TextReveal
-            text="Professional Experience"
-            className="text-4xl md:text-6xl font-black sunset-gradient"
+            text="Career Trajectory"
+            className="text-5xl md:text-8xl font-black text-white tracking-tighter"
           />
         </motion.div>
 
-        <div className="relative pl-8 md:pl-12">
-          {/* Vertical gradient line */}
-          <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-orange-500 via-purple-500 to-blue-500" />
+        <div className="relative">
+          {/* Vertical Grid Line */}
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-white/5" />
 
-          <div className="space-y-14">
+          <div className="space-y-12">
             {experience.map((exp, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -24 }}
+                initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: i * 0.12, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="relative group"
+                viewport={{ once: true }}
+                className="relative pl-12 group"
               >
-                {/* Timeline dot */}
-                <motion.div
-                  whileInView={{ scale: [0, 1.3, 1] }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.12 + 0.2 }}
-                  className={`absolute -left-[33px] md:-left-[45px] top-1.5 w-3.5 h-3.5 rounded-full border-2 ${i % 2 === 0 ? 'border-orange-400' : 'border-blue-400'} bg-black group-hover:${i % 2 === 0 ? 'bg-orange-400' : 'bg-blue-400'} transition-colors duration-300 shadow-[0_0_15px_rgba(0,0,0,0.5)]`}
-                />
+                {/* ID Tag */}
+                <div className="absolute -left-3 top-0 px-2 py-1 bg-black border border-white/10 text-[8px] font-black text-white/40 tracking-widest uppercase rounded group-hover:border-orange-500/50 group-hover:text-orange-400 transition-all">
+                  EXP-{String(i + 1).padStart(2, '0')}
+                </div>
 
-                {/* Card */}
-                <div className={`glass-morphism rounded-2xl p-7 md:p-9 hover:border-${i % 2 === 0 ? 'orange' : 'blue'}-500/30 transition-all duration-500 group`}>
-                  <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
+                {/* Timeline Connector */}
+                <div className="absolute left-0 top-3 w-12 h-px bg-white/10 group-hover:bg-orange-500/50 transition-all" />
+
+                <div className="p-8 rounded-2xl bg-white/2 border border-white/5 hover:border-orange-500/30 transition-all duration-500">
+                  <div className="flex flex-wrap items-center justify-between gap-6 mb-6">
                     <div>
-                      <h3 className={`text-xl md:text-2xl font-bold text-white group-hover:text-${i % 2 === 0 ? 'orange' : 'blue'}-400 transition-colors duration-300 mb-1`}>
+                      <h3 className="text-2xl md:text-3xl font-black text-white mb-2 tracking-tight">
                         {exp.role}
                       </h3>
-                      <p className="text-sm text-slate-400 font-medium">
-                        {exp.company}
-                        <span className="mx-2 text-white/10">·</span>
-                        {exp.location}
-                      </p>
+                      <div className="flex items-center gap-3">
+                        <span className="text-orange-400 font-bold text-sm italic">{exp.company}</span>
+                        <span className="w-1 h-1 rounded-full bg-white/20" />
+                        <span className="text-white/30 text-xs font-medium">{exp.location}</span>
+                      </div>
                     </div>
-                    <span className={`flex-shrink-0 px-4 py-1.5 text-[10px] font-black ${i % 2 === 0 ? 'text-orange-400 border-orange-500/30' : 'text-blue-400 border-blue-500/30'} border rounded-full uppercase tracking-widest`}>
-                      {exp.duration}
-                    </span>
+                    <div className="text-right">
+                      <div className="px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-[10px] font-black text-white/40 tracking-widest uppercase">
+                        {exp.duration}
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-sm text-white/35 leading-relaxed">{exp.description}</p>
+                  <p className="text-slate-400 text-sm leading-relaxed font-medium">
+                    {exp.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
