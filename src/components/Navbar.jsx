@@ -1,4 +1,11 @@
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useSound } from '../hooks/useSound';
+import StatusIndicator from './StatusIndicator';
+import useActiveSection from '../hooks/useActiveSection';
+
+const SECTION_IDS = ['hero', 'about', 'services', 'projects', 'skills', 'achievements', 'contact'];
+
 
 const Navbar = ({ toggleTheme, theme, openCommandPalette }) => {
   const [isOpen, setIsOpen] = useState(false);
