@@ -55,7 +55,7 @@ function App() {
           >
             <SmoothScroll>
               <div
-                className="min-h-screen text-white font-sans cursor-none overflow-x-hidden mesh-gradient transition-colors duration-700"
+                className="min-h-screen font-sans cursor-none overflow-x-hidden mesh-gradient transition-all duration-700"
                 style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
               >
                 {/* Global overlays */}

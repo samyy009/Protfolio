@@ -20,6 +20,11 @@
   --glass-border: rgba(15, 23, 42, 0.1);
 }
 
+[data-theme='light'] body, 
+[data-theme='light'] .mesh-gradient {
+  background-color: #f8fafc !important;
+}
+
 /* Theme Visibility Overrides */
 [data-theme='light'] .text-white { color: #0f172a !important; }
 [data-theme='light'] .text-white\/90 { color: rgba(15, 23, 42, 0.9) !important; }
