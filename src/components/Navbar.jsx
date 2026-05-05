@@ -28,9 +28,9 @@ const Navbar = ({ toggleTheme, theme }) => {
   return (
     <nav className={`fixed w-full z-[100] transition-all duration-500 ${
       scrolled
-        ? 'py-3 bg-black/85 backdrop-blur-xl border-b border-white/5 dark:bg-black/85 light:bg-white/85'
+        ? 'py-3 backdrop-blur-xl border-b'
         : 'py-6 bg-transparent'
-    } ${theme === 'light' ? 'bg-white/85 text-slate-900 border-slate-200' : ''}`}>
+    } ${scrolled ? (theme === 'light' ? 'bg-white/90 border-slate-200' : 'bg-black/85 border-white/5') : ''} ${theme === 'light' && !scrolled ? 'text-slate-900' : ''}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between items-center">
           <motion.a
