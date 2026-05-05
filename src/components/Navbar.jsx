@@ -1,13 +1,20 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import useActiveSection from '../hooks/useActiveSection';
+import { useSound } from '../hooks/useSound';
 
-const SECTION_IDS = ['hero', 'about', 'services', 'projects', 'experience', 'skills', 'achievements', 'contact'];
-
-const Navbar = ({ toggleTheme, theme }) => {
+const Navbar = ({ toggleTheme, theme, openCommandPalette }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const active = useActiveSection(SECTION_IDS);
+  const { isMuted, setIsMuted, playToggle, playClick } = useSound();
+
+  const handleSoundToggle = () => {
+    setIsMuted(!isMuted);
+    playToggle();
+  };
+
+  const handlePalette = () => {
+    playClick();
+    openCommandPalette(true);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
@@ -32,16 +39,23 @@ const Navbar = ({ toggleTheme, theme }) => {
         : 'py-6 bg-transparent'
     } ${scrolled ? (theme === 'light' ? 'bg-white/90 border-slate-200' : 'bg-black/85 border-white/5') : ''} ${theme === 'light' && !scrolled ? 'text-slate-900' : ''}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex justify-between items-center">
-          <motion.a
-            href="#hero"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className={`text-xl font-black tracking-tight hover:text-orange-400 transition-colors ${theme === 'light' ? 'text-slate-900' : 'text-white'}`}
-          >
-            Sameer Sangam
-          </motion.a>
+        <div className="flex justify-between items-center gap-8">
+          <div className="flex items-center gap-10">
+            <motion.a
+              href="#hero"
+              onClick={playClick}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className={`text-xl font-black tracking-tight hover:text-orange-400 transition-colors whitespace-nowrap ${theme === 'light' ? 'text-slate-900' : 'text-white'}`}
+            >
+              Sameer Sangam
+            </motion.a>
+
+            <div className="hidden xl:block">
+              <StatusIndicator theme={theme} />
+            </div>
+          </div>
 
           {/* Desktop links */}
           <div className="hidden lg:flex items-center gap-8">
@@ -49,6 +63,7 @@ const Navbar = ({ toggleTheme, theme }) => {
               <motion.a
                 key={link.name}
                 href={link.href}
+                onClick={playClick}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.07, duration: 0.5 }}
@@ -64,15 +79,37 @@ const Navbar = ({ toggleTheme, theme }) => {
             ))}
 
             <button
-              onClick={toggleTheme}
-              className={`p-2.5 rounded-full transition-all duration-300 ${theme === 'light' ? 'bg-orange-100 text-orange-600' : 'bg-white/5 text-orange-400 hover:bg-white/10'}`}
+              onClick={handlePalette}
+              className={`hidden sm:flex items-center gap-2 px-3 py-2 rounded-xl border border-white/5 bg-white/2 hover:bg-white/5 transition-all group ${theme === 'light' ? 'text-slate-500 border-slate-200' : 'text-white/40'}`}
             >
-              {theme === 'dark' ? (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg>
-              ) : (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
-              )}
+              <span className="text-[10px] font-black uppercase tracking-widest">Command</span>
+              <kbd className={`px-1.5 py-0.5 rounded text-[10px] font-black border transition-colors ${theme === 'light' ? 'bg-slate-100 border-slate-200 text-slate-400' : 'bg-white/5 border-white/10 text-white/30 group-hover:text-orange-400 group-hover:border-orange-500/30'}`}>⌘K</kbd>
             </button>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleSoundToggle}
+                className={`p-2.5 rounded-full transition-all duration-300 ${theme === 'light' ? 'bg-slate-100 text-slate-600' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'}`}
+                title={isMuted ? 'Unmute UI sounds' : 'Mute UI sounds'}
+              >
+                {isMuted ? (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" /></svg>
+                ) : (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
+                )}
+              </button>
+
+              <button
+                onClick={() => { toggleTheme(); playToggle(); }}
+                className={`p-2.5 rounded-full transition-all duration-300 ${theme === 'light' ? 'bg-orange-100 text-orange-600' : 'bg-white/5 text-orange-400 hover:bg-white/10'}`}
+              >
+                {theme === 'dark' ? (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg>
+                ) : (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                )}
+              </button>
+            </div>
           </div>
 
           {/* Mobile actions */}

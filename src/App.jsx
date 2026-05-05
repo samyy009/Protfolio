@@ -1,16 +1,19 @@
 import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+
+// Sections
 import Hero from './sections/Hero';
 import About from './sections/About';
-import Skills from './sections/Skills';
+import Services from './sections/Services';
 import Projects from './sections/Projects';
 import Experience from './sections/Experience';
+import Skills from './sections/Skills';
 import Achievements from './sections/Achievements';
 import Contact from './sections/Contact';
-import Services from './sections/Services';
-import Testimonials from './sections/Testimonials';
+
+// Components
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import SpotlightBackground from './components/SpotlightBackground';
 import SectionWrapper from './components/SectionWrapper';
@@ -20,10 +23,15 @@ import ThreeBackground from './components/ThreeBackground';
 import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
 import Magnetic from './components/Magnetic';
+import CommandPalette from './components/CommandPalette';
+
+// Hooks & Providers
+import { SoundProvider } from './hooks/useSound';
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState('dark');
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const handleLoaded = useCallback(() => setLoading(false), []);
 
   useEffect(() => {
@@ -40,7 +48,7 @@ function App() {
   };
 
   return (
-    <>
+    <SoundProvider>
       <AnimatePresence>
         {loading && <MatrixLoader onComplete={handleLoaded} />}
       </AnimatePresence>
@@ -53,6 +61,12 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
+            <CommandPalette 
+              isOpen={isCommandPaletteOpen} 
+              setIsOpen={setIsCommandPaletteOpen}
+              toggleTheme={toggleTheme}
+              theme={theme}
+            />
             <SmoothScroll>
               <div
                 className="min-h-screen font-sans cursor-none overflow-x-hidden mesh-gradient transition-all duration-700"
@@ -65,36 +79,36 @@ function App() {
                 <SpotlightBackground />
                 <ScrollProgress />
 
-                <Navbar toggleTheme={toggleTheme} theme={theme} />
+                <Navbar toggleTheme={toggleTheme} theme={theme} openCommandPalette={setIsCommandPaletteOpen} />
 
                 <main className="relative z-10">
-                  <Hero />
+                  <Hero theme={theme} />
 
-                  <SectionWrapper>
+                  <SectionWrapper id="about">
                     <About />
                   </SectionWrapper>
 
-                  <SectionWrapper>
+                  <SectionWrapper id="services">
                     <Services />
                   </SectionWrapper>
 
-                  <SectionWrapper>
+                  <SectionWrapper id="projects">
                     <Projects />
                   </SectionWrapper>
 
-                  <SectionWrapper>
+                  <SectionWrapper id="experience">
                     <Experience />
                   </SectionWrapper>
 
-                  <SectionWrapper>
+                  <SectionWrapper id="skills">
                     <Skills />
                   </SectionWrapper>
 
-                  <SectionWrapper>
+                  <SectionWrapper id="achievements">
                     <Achievements />
                   </SectionWrapper>
 
-                  <SectionWrapper>
+                  <SectionWrapper id="contact">
                     <Contact />
                   </SectionWrapper>
                 </main>
@@ -106,7 +120,7 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </SoundProvider>
   );
 }
 
